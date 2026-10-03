@@ -1,0 +1,5 @@
+
+# Large FPGA build logs - generated files
+riscv_mmu_fpga/riscv_mmu/build/arty_100/noisy_warnings-xc7a100t_test_pack.log
+riscv_mmu_fpga/riscv_mmu/build/arty_100/noisy_warnings-xc7a100t_test_fasm.log
+riscv_mmu_fpga/riscv_mmu/build/arty_100/noisy_warnings-xc7a100t_test_place.log
