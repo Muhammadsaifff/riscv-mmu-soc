@@ -1,0 +1,42 @@
+Reading timing models for corner nom_tt_025C_1v80…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+Reading OpenROAD database at '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/55-odb-cellfrequencytables/SoC_Hardened.odb'…
+Reading design constraints file at '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/impl.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 2.0
+[INFO] Setting input delay to: 2.0
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5.0%
+[INFO] No information on clock propagation in input SDC file-- propagating all clocks.
+[INFO] Using voltage extracted from lib (1.8000000000V) for power nets and 0V for ground nets…
+%OL_CREATE_REPORT irdrop.rpt
++ analyze_power_grid -net vccd1 -voltage_file /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/58-openroad-irdropreport/net-vccd1.csv
+[INFO PSM-0040] All shapes on net vccd1 are connected.
+########## IR report #################
+Net              : vccd1
+Corner           : nom_tt_025C_1v80
+Total power      : 1.24e-02 W
+Supply voltage   : 1.80e+00 V
+Worstcase voltage: 1.80e+00 V
+Average voltage  : 1.80e+00 V
+Average IR drop  : 8.67e-07 V
+Worstcase IR drop: 7.93e-04 V
+Percentage drop  : 0.04 %
+######################################
++ analyze_power_grid -net vssd1 -voltage_file /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/58-openroad-irdropreport/net-vssd1.csv
+[INFO PSM-0040] All shapes on net vssd1 are connected.
+########## IR report #################
+Net              : vssd1
+Corner           : nom_tt_025C_1v80
+Total power      : 1.24e-02 W
+Supply voltage   : 0.00e+00 V
+Worstcase voltage: 8.32e-04 V
+Average voltage  : 8.47e-07 V
+Average IR drop  : 8.47e-07 V
+Worstcase IR drop: 8.32e-04 V
+Percentage drop  : 0.05 %
+######################################
+%OL_END_REPORT

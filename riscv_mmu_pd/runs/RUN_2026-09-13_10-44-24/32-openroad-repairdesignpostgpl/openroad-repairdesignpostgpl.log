@@ -1,0 +1,216 @@
+Reading timing models for corner max_tt_025C_1v80…
+Reading timing library for the 'max_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading timing library for the 'max_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+Reading timing models for corner min_ss_100C_1v60…
+Reading timing library for the 'min_ss_100C_1v60' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib'…
+Reading timing library for the 'min_ss_100C_1v60' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner nom_tt_025C_1v80…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib line 1, library sky130_fd_sc_hd__tt_025C_1v80 already exists.
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner max_ff_n40C_1v95…
+Reading timing library for the 'max_ff_n40C_1v95' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib'…
+Reading timing library for the 'max_ff_n40C_1v95' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner nom_ff_n40C_1v95…
+Reading timing library for the 'nom_ff_n40C_1v95' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib line 1, library sky130_fd_sc_hd__ff_n40C_1v95 already exists.
+Reading timing library for the 'nom_ff_n40C_1v95' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner max_ss_100C_1v60…
+Reading timing library for the 'max_ss_100C_1v60' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib line 1, library sky130_fd_sc_hd__ss_100C_1v60 already exists.
+Reading timing library for the 'max_ss_100C_1v60' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner min_tt_025C_1v80…
+Reading timing library for the 'min_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib line 1, library sky130_fd_sc_hd__tt_025C_1v80 already exists.
+Reading timing library for the 'min_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner nom_ss_100C_1v60…
+Reading timing library for the 'nom_ss_100C_1v60' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib line 1, library sky130_fd_sc_hd__ss_100C_1v60 already exists.
+Reading timing library for the 'nom_ss_100C_1v60' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner min_ff_n40C_1v95…
+Reading timing library for the 'min_ff_n40C_1v95' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib line 1, library sky130_fd_sc_hd__ff_n40C_1v95 already exists.
+Reading timing library for the 'min_ff_n40C_1v95' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading OpenROAD database at '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/28-openroad-globalplacement/SoC_Hardened.odb'…
+Reading design constraints file at '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/impl.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 2.0
+[INFO] Setting input delay to: 2.0
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5.0%
+[INFO] No information on clock propagation in input SDC file-- propagating all clocks.
+[INFO RSZ-0027] Inserted 0 sky130_fd_sc_hd__clkdlybuf4s25_1 input buffers.
+[INFO RSZ-0028] Inserted 2 sky130_fd_sc_hd__clkdlybuf4s25_1 output buffers.
++ repair_design -verbose -max_wire_length 0.0 -slew_margin 30.0 -cap_margin 20.0
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |      1139
+       10 |     +0.0% |       1 |       1 |             1 |      1129
+       20 |     +0.0% |       1 |       1 |             1 |      1119
+       30 |     +0.0% |       2 |       2 |             2 |      1109
+       40 |     +0.0% |       2 |       2 |             2 |      1099
+       50 |     +0.0% |       2 |       2 |             2 |      1089
+       60 |     +0.0% |       2 |       2 |             2 |      1079
+       70 |     +0.0% |       2 |       3 |             3 |      1069
+       80 |     +0.0% |       2 |       7 |             5 |      1059
+       90 |     +0.0% |       2 |       7 |             5 |      1049
+      100 |     +0.0% |       3 |      10 |             7 |      1039
+      110 |     +0.0% |       3 |      10 |             7 |      1029
+      120 |     +0.0% |       3 |      10 |             7 |      1019
+      130 |     +0.0% |       3 |      10 |             7 |      1009
+      140 |     +0.0% |       3 |      10 |             7 |       999
+      150 |     +0.0% |       3 |      10 |             7 |       989
+      160 |     +0.0% |       3 |      10 |             7 |       979
+      170 |     +0.0% |       3 |      10 |             7 |       969
+      180 |     +0.0% |       3 |      11 |             8 |       959
+      190 |     +0.0% |       3 |      19 |            16 |       949
+      200 |     +0.0% |       3 |      19 |            16 |       939
+      210 |     +0.0% |       3 |      19 |            16 |       929
+      220 |     +0.0% |       3 |      19 |            16 |       919
+      230 |     +0.0% |       3 |      20 |            17 |       909
+      240 |     +0.0% |       3 |      29 |            20 |       899
+      250 |     +0.0% |       3 |      29 |            20 |       889
+      260 |     +0.0% |       3 |      29 |            20 |       879
+      270 |     +0.0% |       3 |      30 |            21 |       869
+      280 |     +0.0% |       3 |      30 |            21 |       859
+      290 |     +0.0% |       3 |      30 |            21 |       849
+      300 |     +0.0% |       3 |      30 |            21 |       839
+      310 |     +0.0% |       3 |      30 |            21 |       829
+      320 |     +0.0% |       3 |      30 |            21 |       819
+      330 |     +0.0% |       3 |      30 |            21 |       809
+      340 |     +0.0% |       3 |      30 |            21 |       799
+      350 |     +0.0% |       3 |      31 |            22 |       789
+      360 |     +0.1% |       3 |      38 |            29 |       779
+      370 |     +0.1% |       3 |      39 |            30 |       769
+      380 |     +0.1% |       3 |      39 |            30 |       759
+      390 |     +0.1% |       3 |      39 |            30 |       749
+      400 |     +0.1% |       3 |      39 |            30 |       739
+      410 |     +0.1% |       3 |      39 |            30 |       729
+      420 |     +0.1% |       3 |      45 |            31 |       719
+      430 |     +0.1% |       3 |      45 |            31 |       709
+      440 |     +0.1% |       3 |      45 |            31 |       699
+      450 |     +0.1% |       3 |      45 |            31 |       689
+      460 |     +0.1% |       3 |      45 |            31 |       679
+      470 |     +0.1% |       3 |      45 |            31 |       669
+      480 |     +0.1% |       3 |      45 |            31 |       659
+      490 |     +0.1% |       3 |      45 |            31 |       649
+      500 |     +0.1% |       3 |      45 |            31 |       639
+      510 |     +0.1% |       3 |      46 |            32 |       629
+      520 |     +0.1% |       3 |      48 |            34 |       619
+      530 |     +0.1% |       3 |      48 |            34 |       609
+      540 |     +0.1% |       3 |      48 |            34 |       599
+      550 |     +0.1% |       3 |      48 |            34 |       589
+      560 |     +0.1% |       3 |      48 |            34 |       579
+      570 |     +0.1% |       3 |      48 |            34 |       569
+      580 |     +0.1% |       3 |      48 |            34 |       559
+      590 |     +0.1% |       3 |      48 |            34 |       549
+      600 |     +0.1% |       3 |      48 |            34 |       539
+      610 |     +0.1% |       3 |      48 |            34 |       529
+      620 |     +0.1% |       3 |      48 |            34 |       519
+      630 |     +0.1% |       3 |      48 |            34 |       509
+      640 |     +0.1% |       3 |      48 |            34 |       499
+      650 |     +0.1% |       3 |      58 |            37 |       489
+      660 |     +0.1% |       3 |      59 |            38 |       479
+      670 |     +0.1% |       3 |      59 |            38 |       469
+      680 |     +0.1% |       3 |      59 |            38 |       459
+      690 |     +0.1% |       3 |      68 |            39 |       449
+      700 |     +0.1% |       3 |      68 |            39 |       439
+      710 |     +0.1% |       3 |      68 |            39 |       429
+      720 |     +0.1% |       3 |      68 |            39 |       419
+      730 |     +0.1% |       3 |      68 |            39 |       409
+      740 |     +0.1% |       3 |      68 |            39 |       399
+      750 |     +0.1% |       3 |      68 |            39 |       389
+      760 |     +0.1% |       3 |      68 |            39 |       379
+      770 |     +0.1% |       3 |      68 |            39 |       369
+      780 |     +0.1% |       3 |      68 |            39 |       359
+      790 |     +0.1% |       3 |      68 |            39 |       349
+      800 |     +0.1% |       3 |      68 |            39 |       339
+      810 |     +0.1% |       3 |      68 |            39 |       329
+      820 |     +0.1% |       4 |      69 |            41 |       319
+      830 |     +0.1% |       4 |      69 |            41 |       309
+      840 |     +0.1% |       4 |      69 |            41 |       299
+      850 |     +0.1% |       4 |      69 |            41 |       289
+      860 |     +0.1% |       4 |      69 |            41 |       279
+      870 |     +0.1% |       4 |      69 |            41 |       269
+      880 |     +0.1% |       4 |      69 |            41 |       259
+      890 |     +0.1% |       4 |      69 |            41 |       249
+      900 |     +0.1% |       4 |      69 |            41 |       239
+      910 |     +0.1% |       4 |      69 |            41 |       229
+      920 |     +0.1% |       4 |      69 |            41 |       219
+      930 |     +0.1% |       4 |      69 |            41 |       209
+      940 |     +0.1% |       4 |      69 |            41 |       199
+      950 |     +0.1% |       4 |      69 |            41 |       189
+      960 |     +0.1% |       4 |      69 |            41 |       179
+      970 |     +0.1% |       4 |      69 |            41 |       169
+      980 |     +0.1% |       4 |      69 |            41 |       159
+      990 |     +0.1% |       4 |      69 |            41 |       149
+     1000 |     +0.1% |       4 |      69 |            41 |       139
+     1010 |     +0.1% |       4 |      69 |            41 |       129
+     1020 |     +0.1% |       4 |      69 |            41 |       119
+     1030 |     +0.1% |       4 |      69 |            41 |       109
+     1040 |     +0.1% |       4 |      69 |            41 |        99
+     1050 |     +0.1% |       4 |      69 |            41 |        89
+     1060 |     +0.1% |       4 |      69 |            41 |        79
+     1070 |     +0.1% |       4 |      69 |            41 |        69
+     1080 |     +0.1% |       4 |      69 |            41 |        59
+     1090 |     +0.1% |       4 |      69 |            41 |        49
+     1100 |     +0.1% |       4 |      69 |            41 |        39
+     1110 |     +0.1% |       4 |      69 |            41 |        29
+     1120 |     +0.1% |       4 |      69 |            41 |        19
+     1130 |     +0.1% |       4 |      69 |            41 |         9
+    final |     +0.1% |       4 |      69 |            41 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 32 slew violations.
+[INFO RSZ-0035] Found 14 fanout violations.
+[INFO RSZ-0039] Resized 4 instances.
+[INFO RSZ-0038] Inserted 69 buffers in 41 nets.
+[INFO RSZ-0042] Inserted 91 tie sky130_fd_sc_hd__conb_1 instances.
+[INFO RSZ-0042] Inserted 2 tie sky130_fd_sc_hd__conb_1 instances.
+[WARNING RSZ-0020] found 2 floating nets.
+ vccd1
+ vssd1
++ detailed_placement -max_displacement  500 100 
+Placement Analysis
+---------------------------------
+total displacement       3341.0 u
+average displacement        0.2 u
+max displacement          114.7 u
+original HPWL           23803.7 u
+legalized HPWL          25793.3 u
+delta HPWL                    8 %
+
+[INFO DPL-0020] Mirrored 505 instances
+[INFO DPL-0021] HPWL before           25793.3 u
+[INFO DPL-0022] HPWL after            24811.3 u
+[INFO DPL-0023] HPWL delta               -3.8 %
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+^.*sram_even_words$ matched with u_top.dataMemory.sram_even_words
+^.*sram_odd_words$ matched with u_top.dataMemory.sram_odd_words
+[INFO ODB-0403] 656 connections made, 0 conflicts skipped.
+Updating metrics…
+Cell type report:                       Count       Area
+  Macro                                     2  569076.95
+  Fill cell                              1526    5727.99
+  Tap cell                              11929   14925.56
+  Buffer                                  328    1641.57
+  Timing Repair Buffer                     71     604.33
+  Inverter                                 34     127.62
+  Sequential cell                         130    2828.96
+  Multi-Input combinational cell          422    3326.94
+  Total                                 14442  598259.94
+Writing OpenROAD database to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/32-openroad-repairdesignpostgpl/SoC_Hardened.odb'…
+Writing netlist to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/32-openroad-repairdesignpostgpl/SoC_Hardened.nl.v'…
+Writing powered netlist to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/32-openroad-repairdesignpostgpl/SoC_Hardened.pnl.v'…
+Writing layout to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/32-openroad-repairdesignpostgpl/SoC_Hardened.def'…
+Writing timing constraints to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/32-openroad-repairdesignpostgpl/SoC_Hardened.sdc'…

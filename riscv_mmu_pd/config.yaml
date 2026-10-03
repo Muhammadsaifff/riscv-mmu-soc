@@ -1,0 +1,185 @@
+DESIGN_NAME: SoC_Hardened
+
+# ============================================================
+# RTL SOURCES
+# ============================================================
+VERILOG_FILES:
+  - dir::*.v
+
+# Local structural black-box model for the SRAM macro.
+# Do NOT point this to the behavioral PDK Verilog model.
+VERILOG_FILES_BLACKBOX:
+  - dir::blackbox/sky130_sram_2kbyte_1rw1r_32x512_8_bb.v
+
+
+# ============================================================
+# SRAM HARD MACRO
+# ============================================================
+MACROS:
+  sky130_sram_2kbyte_1rw1r_32x512_8:
+    lef:
+      - pdk_dir::libs.ref/sky130_sram_macros/lef/sky130_sram_2kbyte_1rw1r_32x512_8.lef
+
+    gds:
+      - pdk_dir::libs.ref/sky130_sram_macros/gds/sky130_sram_2kbyte_1rw1r_32x512_8.gds
+
+    nl:
+      - dir::blackbox/sky130_sram_2kbyte_1rw1r_32x512_8_bb.v
+
+    lib:
+      "nom_*":
+        - pdk_dir::libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib
+      "min_*":
+        - pdk_dir::libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib
+      "max_*":
+        - pdk_dir::libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib
+
+    # These are the flattened hierarchical macro instance names
+    # confirmed in the synthesized/floorplanned design:
+    # SoC_Hardened -> u_top -> dataMemory -> SRAM instance.
+    #
+    # If CheckMacroInstances reports a naming mismatch, inspect
+    # 06-yosys-synthesis/SoC_Hardened.nl.v and copy the exact names.
+    instances:
+      u_top.dataMemory.sram_even_words:
+        location: [250, 150]
+        orientation: N
+      u_top.dataMemory.sram_odd_words:
+        location: [250, 650]
+        orientation: N
+
+# Prefer Liberty timing for the SRAM macro.
+STA_MACRO_PRIORITIZE_NL: false
+
+
+# ============================================================
+# CLOCK
+# ============================================================
+CLOCK_PORT: clk
+CLOCK_NET: clk
+CLOCK_PERIOD: 10.0
+
+# ============================================================
+# GLOBAL POWER NETS
+# ============================================================
+# These are the supply nets used by the SRAM hard macros.
+VDD_NETS:
+  - vccd1
+
+GND_NETS:
+  - vssd1
+
+
+# ============================================================
+# TIMING CONSTRAINTS
+# ============================================================
+PNR_SDC_FILE: dir::impl.sdc
+SIGNOFF_SDC_FILE: dir::signoff.sdc
+
+
+# ============================================================
+# FLOORPLAN / PLACEMENT
+# ============================================================
+FP_CORE_UTIL: 40
+PL_TARGET_DENSITY_PCT: 50
+
+
+# ============================================================
+# IO PLACEMENT
+# ============================================================
+IO_PIN_ORDER_CFG: dir::pin_order.cfg
+
+IO_PIN_MIN_DISTANCE: 10
+
+IO_PIN_V_LENGTH: 4
+IO_PIN_H_LENGTH: 4
+
+IO_PIN_V_THICKNESS_MULT: 3
+IO_PIN_H_THICKNESS_MULT: 3
+
+
+# ============================================================
+# POWER DISTRIBUTION NETWORK
+# ============================================================
+PDN_ENABLE_RAILS: true
+
+PDN_VOFFSET: 5
+PDN_HOFFSET: 5
+
+PDN_VWIDTH: 2
+PDN_HWIDTH: 2
+
+PDN_VSPACING: 1.7
+PDN_HSPACING: 1.7
+
+PDN_VPITCH: 60
+PDN_HPITCH: 60
+
+PDN_SKIPTRIM: false
+
+
+# ============================================================
+# CORE POWER RING
+# ============================================================
+PDN_CORE_RING: false
+
+PDN_CORE_RING_VWIDTH: 2
+PDN_CORE_RING_HWIDTH: 2
+
+PDN_CORE_RING_VOFFSET: 5
+PDN_CORE_RING_HOFFSET: 5
+
+PDN_CORE_RING_VSPACING: 1.7
+PDN_CORE_RING_HSPACING: 1.7
+
+
+# ============================================================
+# SRAM POWER CONNECTIONS
+# ============================================================
+PDN_MACRO_CONNECTIONS:
+  - "^.*sram_even_words$ vccd1 vssd1 vccd1 vssd1"
+  - "^.*sram_odd_words$ vccd1 vssd1 vccd1 vssd1"
+
+
+# ============================================================
+# FLOW STEPS
+# ============================================================
+RUN_CTS: true
+RUN_FILL_INSERTION: true
+RUN_ANTENNA_REPAIR: true
+
+
+# ============================================================
+# SIGNOFF
+# ============================================================
+
+RUN_MAGIC_STREAMOUT: false
+RUN_KLAYOUT_STREAMOUT: true
+PRIMARY_GDSII_STREAMOUT_TOOL: klayout
+RUN_KLAYOUT_DRC: true
+RUN_KLAYOUT_XOR: true
+RUN_MAGIC_DRC: false
+
+
+# ============================================================
+# SYNTHESIS
+# ============================================================
+# Keep flatten mode because deferred_flatten previously exposed
+# unmapped $scopeinfo cells. Do not re-enable keep_hierarchy on dmem;
+# the SRAM instances themselves retain keep/dont_touch attributes.
+SYNTH_HIERARCHY_MODE: flatten
+SYNTH_SPLITNETS: false
+
+RUN_CTS: true
+
+# Post-GRT repair for long/high-slew nets
+RUN_POST_GRT_DESIGN_REPAIR: true
+RUN_POST_GRT_RESIZER_TIMING: true
+
+RUN_FILL_INSERTION: true
+
+GRT_DESIGN_REPAIR_MAX_SLEW_PCT: 30
+GRT_DESIGN_REPAIR_MAX_CAP_PCT: 20
+
+PL_RESIZER_MAX_SLEW_MARGIN: 30
+PL_RESIZER_MAX_CAP_MARGIN: 20

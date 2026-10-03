@@ -1,0 +1,464 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= nom_tt_025C_1v80 Corner ===================================
+
+Startpoint: reset (input port clocked by clk)
+Endpoint: _1562_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  2.000000    2.000000 v input external delay
+     3    0.122252    0.273809    0.231206    2.231206 v reset (in)
+                                                         reset (net)
+                      0.303103    0.000000    2.231206 v _1826_/A (sky130_fd_sc_hd__buf_2)
+     5    0.036132    0.094389    0.310091    2.541297 v _1826_/X (sky130_fd_sc_hd__buf_2)
+                                                         _0629_ (net)
+                      0.094459    0.002441    2.543738 v _1090_/A (sky130_fd_sc_hd__inv_2)
+     4    0.050128    0.229392    0.219233    2.762971 ^ _1090_/Y (sky130_fd_sc_hd__inv_2)
+                                                         _0291_ (net)
+                      0.229403    0.001424    2.764395 ^ fanout64/A (sky130_fd_sc_hd__clkdlybuf4s25_1)
+     9    0.028475    0.289951    0.495658    3.260053 ^ fanout64/X (sky130_fd_sc_hd__clkdlybuf4s25_1)
+                                                         net64 (net)
+                      0.289951    0.000997    3.261049 ^ _1983_/A (sky130_fd_sc_hd__buf_2)
+     1    0.004665    0.039865    0.179018    3.440068 ^ _1983_/X (sky130_fd_sc_hd__buf_2)
+                                                         _0877_ (net)
+                      0.039865    0.000114    3.440182 ^ _1562_/RESET_B (sky130_fd_sc_hd__dfrtp_2)
+                                              3.440182   data arrival time
+
+                                 10.000000   10.000000   clock clk (rise edge)
+                                  0.000000   10.000000   clock source latency
+     2    0.157321    0.711212    0.506547   10.506547 ^ clk (in)
+                                                         clk (net)
+                      0.736741    0.000000   10.506547 ^ clkbuf_regs_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     1    0.008569    0.050072    0.247138   10.753685 ^ clkbuf_regs_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clk_regs (net)
+                      0.050073    0.000255   10.753941 ^ clkbuf_0_clk_regs/A (sky130_fd_sc_hd__clkbuf_16)
+     8    0.078840    0.095608    0.163097   10.917037 ^ clkbuf_0_clk_regs/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk_regs (net)
+                      0.095781    0.002665   10.919702 ^ clkbuf_3_2_0_clk_regs/A (sky130_fd_sc_hd__clkbuf_8)
+     2    0.018941    0.049715    0.141539   11.061241 ^ clkbuf_3_2_0_clk_regs/X (sky130_fd_sc_hd__clkbuf_8)
+                                                         clknet_3_2_0_clk_regs (net)
+                      0.049720    0.000525   11.061766 ^ clkbuf_4_4__f_clk_regs/A (sky130_fd_sc_hd__clkbuf_16)
+     9    0.029373    0.050497    0.128892   11.190658 ^ clkbuf_4_4__f_clk_regs/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_4_4__leaf_clk_regs (net)
+                      0.050498    0.000401   11.191059 ^ _1562_/CLK (sky130_fd_sc_hd__dfrtp_2)
+                                 -0.100000   11.091059   clock uncertainty
+                                  0.000000   11.091059   clock reconvergence pessimism
+                                  0.222402   11.313461   library recovery time
+                                             11.313461   data required time
+---------------------------------------------------------------------------------------------
+                                             11.313461   data required time
+                                             -3.440182   data arrival time
+---------------------------------------------------------------------------------------------
+                                              7.873280   slack (MET)
+
+
+Startpoint: _1542_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: gpio[3] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     2    0.157321    0.711212    0.559868    0.559868 ^ clk (in)
+                                                         clk (net)
+                      0.736741    0.000000    0.559868 ^ clkbuf_regs_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     1    0.008569    0.050072    0.273153    0.833020 ^ clkbuf_regs_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clk_regs (net)
+                      0.050073    0.000282    0.833302 ^ clkbuf_0_clk_regs/A (sky130_fd_sc_hd__clkbuf_16)
+     8    0.078840    0.095608    0.180265    1.013568 ^ clkbuf_0_clk_regs/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk_regs (net)
+                      0.095782    0.002952    1.016519 ^ clkbuf_3_5_0_clk_regs/A (sky130_fd_sc_hd__clkbuf_8)
+     2    0.019206    0.050180    0.156912    1.173431 ^ clkbuf_3_5_0_clk_regs/X (sky130_fd_sc_hd__clkbuf_8)
+                                                         clknet_3_5_0_clk_regs (net)
+                      0.050183    0.000431    1.173862 ^ clkbuf_4_11__f_clk_regs/A (sky130_fd_sc_hd__clkbuf_16)
+     8    0.028527    0.049728    0.141824    1.315686 ^ clkbuf_4_11__f_clk_regs/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_4_11__leaf_clk_regs (net)
+                      0.049730    0.000563    1.316249 ^ _1542_/CLK (sky130_fd_sc_hd__dfxtp_4)
+     3    0.025586    0.085764    0.395730    1.711979 ^ _1542_/Q (sky130_fd_sc_hd__dfxtp_4)
+                                                         u_top.RV32I_Logic.Single_Cycle_Datapath.pcREG.q[12] (net)
+                      0.085788    0.001462    1.713441 ^ rebuffer183/A (sky130_fd_sc_hd__buf_2)
+     2    0.014933    0.080333    0.156434    1.869875 ^ rebuffer183/X (sky130_fd_sc_hd__buf_2)
+                                                         net182 (net)
+                      0.080338    0.000765    1.870640 ^ rebuffer168/A (sky130_fd_sc_hd__buf_2)
+     2    0.010694    0.061407    0.139336    2.009977 ^ rebuffer168/X (sky130_fd_sc_hd__buf_2)
+                                                         net167 (net)
+                      0.061407    0.000266    2.010243 ^ _1126_/B (sky130_fd_sc_hd__nand2b_2)
+     2    0.013999    0.078240    0.091127    2.101370 v _1126_/Y (sky130_fd_sc_hd__nand2b_2)
+                                                         _0462_ (net)
+                      0.078240    0.000340    2.101710 v fanout50/A (sky130_fd_sc_hd__buf_6)
+    10    0.043881    0.051726    0.165516    2.267227 v fanout50/X (sky130_fd_sc_hd__buf_6)
+                                                         net50 (net)
+                      0.051828    0.002188    2.269415 v _1162_/A2 (sky130_fd_sc_hd__o22a_2)
+     1    0.007464    0.050424    0.244243    2.513658 v _1162_/X (sky130_fd_sc_hd__o22a_2)
+                                                         _0498_ (net)
+                      0.050424    0.000293    2.513951 v _1163_/C1 (sky130_fd_sc_hd__o221a_4)
+     4    0.022727    0.067080    0.147625    2.661576 v _1163_/X (sky130_fd_sc_hd__o221a_4)
+                                                         _0499_ (net)
+                      0.067089    0.000859    2.662435 v _1240_/B (sky130_fd_sc_hd__and2_2)
+     1    0.002556    0.035739    0.200594    2.863029 v _1240_/X (sky130_fd_sc_hd__and2_2)
+                                                         _0555_ (net)
+                      0.035739    0.000077    2.863105 v _1253_/B1 (sky130_fd_sc_hd__o221a_2)
+     1    0.006971    0.053259    0.265116    3.128221 v _1253_/X (sky130_fd_sc_hd__o221a_2)
+                                                         _0568_ (net)
+                      0.053260    0.000271    3.128492 v _1257_/B1 (sky130_fd_sc_hd__o211a_4)
+     1    0.001863    0.033913    0.136678    3.265170 v _1257_/X (sky130_fd_sc_hd__o211a_4)
+                                                         _0572_ (net)
+                      0.033913    0.000038    3.265208 v _1258_/D (sky130_fd_sc_hd__and4b_2)
+     2    0.022489    0.086462    0.299424    3.564631 v _1258_/X (sky130_fd_sc_hd__and4b_2)
+                                                         _0573_ (net)
+                      0.086465    0.000663    3.565295 v rebuffer170/A (sky130_fd_sc_hd__buf_6)
+     1    0.008071    0.024017    0.138388    3.703682 v rebuffer170/X (sky130_fd_sc_hd__buf_6)
+                                                         net169 (net)
+                      0.024017    0.000247    3.703929 v _1259_/D (sky130_fd_sc_hd__nor4_4)
+     3    0.027536    0.449944    0.348711    4.052639 ^ _1259_/Y (sky130_fd_sc_hd__nor4_4)
+                                                         _0574_ (net)
+                      0.449969    0.002726    4.055366 ^ _1262_/A (sky130_fd_sc_hd__nor2_4)
+     1    0.068942    0.167256    0.194482    4.249847 v _1262_/Y (sky130_fd_sc_hd__nor2_4)
+                                                         _0694_ (net)
+                      0.171677    0.022578    4.272425 v wire3/A (sky130_fd_sc_hd__buf_8)
+     1    0.034189    0.040428    0.201074    4.473499 v wire3/X (sky130_fd_sc_hd__buf_8)
+                                                         gpio[3] (net)
+                      0.040440    0.000712    4.474212 v gpio[3] (out)
+                                              4.474212   data arrival time
+
+                                 10.000000   10.000000   clock clk (rise edge)
+                                  0.000000   10.000000   clock network delay (propagated)
+                                 -0.100000    9.900001   clock uncertainty
+                                  0.000000    9.900001   clock reconvergence pessimism
+                                 -2.000000    7.900000   output external delay
+                                              7.900000   data required time
+---------------------------------------------------------------------------------------------
+                                              7.900000   data required time
+                                             -4.474212   data arrival time
+---------------------------------------------------------------------------------------------
+                                              3.425788   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= nom_tt_025C_1v80 Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= nom_tt_025C_1v80 Corner ===================================
+
+max slew
+
+Pin                                        Limit        Slew       Slack
+------------------------------------------------------------------------
+u_top.dataMemory.sram_odd_words/wmask0[3]    0.040000    0.138101   -0.098101 (VIOLATED)
+u_top.dataMemory.sram_odd_words/addr0[0]    0.040000    0.136284   -0.096284 (VIOLATED)
+u_top.dataMemory.sram_odd_words/addr0[3]    0.040000    0.135502   -0.095502 (VIOLATED)
+u_top.dataMemory.sram_even_words/wmask0[3]    0.040000    0.134793   -0.094793 (VIOLATED)
+u_top.dataMemory.sram_odd_words/wmask0[2]    0.040000    0.134724   -0.094724 (VIOLATED)
+u_top.dataMemory.sram_even_words/addr0[4]    0.040000    0.133051   -0.093051 (VIOLATED)
+u_top.dataMemory.sram_odd_words/addr0[8]    0.040000    0.132451   -0.092451 (VIOLATED)
+u_top.dataMemory.sram_even_words/addr0[2]    0.040000    0.132052   -0.092052 (VIOLATED)
+u_top.dataMemory.sram_odd_words/wmask0[1]    0.040000    0.131750   -0.091750 (VIOLATED)
+u_top.dataMemory.sram_even_words/addr0[6]    0.040000    0.130816   -0.090816 (VIOLATED)
+u_top.dataMemory.sram_odd_words/addr0[7]    0.040000    0.130695   -0.090695 (VIOLATED)
+u_top.dataMemory.sram_even_words/wmask0[1]    0.040000    0.130678   -0.090678 (VIOLATED)
+u_top.dataMemory.sram_even_words/addr0[8]    0.040000    0.129783   -0.089783 (VIOLATED)
+u_top.dataMemory.sram_odd_words/addr0[1]    0.040000    0.129376   -0.089376 (VIOLATED)
+u_top.dataMemory.sram_even_words/addr0[7]    0.040000    0.128520   -0.088520 (VIOLATED)
+u_top.dataMemory.sram_odd_words/addr0[6]    0.040000    0.128142   -0.088142 (VIOLATED)
+u_top.dataMemory.sram_even_words/wmask0[2]    0.040000    0.127996   -0.087996 (VIOLATED)
+u_top.dataMemory.sram_odd_words/addr0[5]    0.040000    0.127338   -0.087338 (VIOLATED)
+u_top.dataMemory.sram_even_words/addr0[5]    0.040000    0.127220   -0.087220 (VIOLATED)
+u_top.dataMemory.sram_even_words/addr0[0]    0.040000    0.127136   -0.087136 (VIOLATED)
+u_top.dataMemory.sram_odd_words/addr0[4]    0.040000    0.126897   -0.086897 (VIOLATED)
+u_top.dataMemory.sram_even_words/addr0[3]    0.040000    0.126846   -0.086846 (VIOLATED)
+u_top.dataMemory.sram_odd_words/addr0[2]    0.040000    0.126213   -0.086213 (VIOLATED)
+u_top.dataMemory.sram_even_words/addr0[1]    0.040000    0.125956   -0.085956 (VIOLATED)
+u_top.dataMemory.sram_even_words/wmask0[0]    0.040000    0.125850   -0.085850 (VIOLATED)
+u_top.dataMemory.sram_odd_words/wmask0[0]    0.040000    0.125423   -0.085423 (VIOLATED)
+
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+_1573_/Q                                 10     14     -4 (VIOLATED)
+
+
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 250 unannotated drivers.
+ _1667_/X
+ _1667__154/HI
+ _1668_/X
+ _1668__155/HI
+ _1669_/X
+ _1669__156/HI
+ _1670_/X
+ _1670__157/HI
+ _1671__163/LO
+ _1673__158/HI
+ _1675_/X
+ _1676_/X
+ _1677_/X
+ _1678_/X
+ _1679_/X
+ _1680_/X
+ _1681_/X
+ _1682_/X
+ _1683_/X
+ _1684_/X
+ _1684__159/HI
+ _1685_/X
+ _1686_/X
+ _1687_/X
+ _1688_/X
+ _1688__160/HI
+ _1689_/X
+ _1690_/X
+ _1691_/X
+ _1692_/X
+ _1692__161/HI
+ _1693_/X
+ _1694_/X
+ _1695_/X
+ _1696_/X
+ _1696__162/HI
+ _1697__164/LO
+ clkload0/X
+ clkload1/X
+ clkload2/X
+ u_top.dataMemory.sram_even_words/dout0[0]
+ u_top.dataMemory.sram_even_words/dout0[10]
+ u_top.dataMemory.sram_even_words/dout0[11]
+ u_top.dataMemory.sram_even_words/dout0[12]
+ u_top.dataMemory.sram_even_words/dout0[13]
+ u_top.dataMemory.sram_even_words/dout0[14]
+ u_top.dataMemory.sram_even_words/dout0[15]
+ u_top.dataMemory.sram_even_words/dout0[16]
+ u_top.dataMemory.sram_even_words/dout0[17]
+ u_top.dataMemory.sram_even_words/dout0[18]
+ u_top.dataMemory.sram_even_words/dout0[19]
+ u_top.dataMemory.sram_even_words/dout0[1]
+ u_top.dataMemory.sram_even_words/dout0[20]
+ u_top.dataMemory.sram_even_words/dout0[21]
+ u_top.dataMemory.sram_even_words/dout0[22]
+ u_top.dataMemory.sram_even_words/dout0[23]
+ u_top.dataMemory.sram_even_words/dout0[24]
+ u_top.dataMemory.sram_even_words/dout0[25]
+ u_top.dataMemory.sram_even_words/dout0[26]
+ u_top.dataMemory.sram_even_words/dout0[27]
+ u_top.dataMemory.sram_even_words/dout0[28]
+ u_top.dataMemory.sram_even_words/dout0[29]
+ u_top.dataMemory.sram_even_words/dout0[2]
+ u_top.dataMemory.sram_even_words/dout0[30]
+ u_top.dataMemory.sram_even_words/dout0[31]
+ u_top.dataMemory.sram_even_words/dout0[3]
+ u_top.dataMemory.sram_even_words/dout0[4]
+ u_top.dataMemory.sram_even_words/dout0[5]
+ u_top.dataMemory.sram_even_words/dout0[6]
+ u_top.dataMemory.sram_even_words/dout0[7]
+ u_top.dataMemory.sram_even_words/dout0[8]
+ u_top.dataMemory.sram_even_words/dout0[9]
+ u_top.dataMemory.sram_even_words/dout1[0]
+ u_top.dataMemory.sram_even_words/dout1[10]
+ u_top.dataMemory.sram_even_words/dout1[11]
+ u_top.dataMemory.sram_even_words/dout1[12]
+ u_top.dataMemory.sram_even_words/dout1[13]
+ u_top.dataMemory.sram_even_words/dout1[14]
+ u_top.dataMemory.sram_even_words/dout1[15]
+ u_top.dataMemory.sram_even_words/dout1[16]
+ u_top.dataMemory.sram_even_words/dout1[17]
+ u_top.dataMemory.sram_even_words/dout1[18]
+ u_top.dataMemory.sram_even_words/dout1[19]
+ u_top.dataMemory.sram_even_words/dout1[1]
+ u_top.dataMemory.sram_even_words/dout1[20]
+ u_top.dataMemory.sram_even_words/dout1[21]
+ u_top.dataMemory.sram_even_words/dout1[22]
+ u_top.dataMemory.sram_even_words/dout1[23]
+ u_top.dataMemory.sram_even_words/dout1[24]
+ u_top.dataMemory.sram_even_words/dout1[25]
+ u_top.dataMemory.sram_even_words/dout1[26]
+ u_top.dataMemory.sram_even_words/dout1[27]
+ u_top.dataMemory.sram_even_words/dout1[28]
+ u_top.dataMemory.sram_even_words/dout1[29]
+ u_top.dataMemory.sram_even_words/dout1[2]
+ u_top.dataMemory.sram_even_words/dout1[30]
+ u_top.dataMemory.sram_even_words/dout1[31]
+ u_top.dataMemory.sram_even_words/dout1[3]
+ u_top.dataMemory.sram_even_words/dout1[4]
+ u_top.dataMemory.sram_even_words/dout1[5]
+ u_top.dataMemory.sram_even_words/dout1[6]
+ u_top.dataMemory.sram_even_words/dout1[7]
+ u_top.dataMemory.sram_even_words/dout1[8]
+ u_top.dataMemory.sram_even_words/dout1[9]
+ u_top.dataMemory.sram_even_words_100/HI
+ u_top.dataMemory.sram_even_words_101/HI
+ u_top.dataMemory.sram_even_words_102/HI
+ u_top.dataMemory.sram_even_words_103/HI
+ u_top.dataMemory.sram_even_words_104/HI
+ u_top.dataMemory.sram_even_words_105/HI
+ u_top.dataMemory.sram_even_words_106/HI
+ u_top.dataMemory.sram_even_words_107/HI
+ u_top.dataMemory.sram_even_words_108/HI
+ u_top.dataMemory.sram_even_words_109/HI
+ u_top.dataMemory.sram_even_words_110/HI
+ u_top.dataMemory.sram_even_words_111/HI
+ u_top.dataMemory.sram_even_words_112/HI
+ u_top.dataMemory.sram_even_words_72/HI
+ u_top.dataMemory.sram_even_words_73/HI
+ u_top.dataMemory.sram_even_words_74/HI
+ u_top.dataMemory.sram_even_words_75/HI
+ u_top.dataMemory.sram_even_words_76/HI
+ u_top.dataMemory.sram_even_words_77/HI
+ u_top.dataMemory.sram_even_words_78/HI
+ u_top.dataMemory.sram_even_words_79/HI
+ u_top.dataMemory.sram_even_words_80/HI
+ u_top.dataMemory.sram_even_words_81/HI
+ u_top.dataMemory.sram_even_words_82/HI
+ u_top.dataMemory.sram_even_words_83/HI
+ u_top.dataMemory.sram_even_words_84/HI
+ u_top.dataMemory.sram_even_words_85/HI
+ u_top.dataMemory.sram_even_words_86/HI
+ u_top.dataMemory.sram_even_words_87/HI
+ u_top.dataMemory.sram_even_words_88/HI
+ u_top.dataMemory.sram_even_words_89/HI
+ u_top.dataMemory.sram_even_words_90/HI
+ u_top.dataMemory.sram_even_words_91/HI
+ u_top.dataMemory.sram_even_words_92/HI
+ u_top.dataMemory.sram_even_words_93/HI
+ u_top.dataMemory.sram_even_words_94/HI
+ u_top.dataMemory.sram_even_words_95/HI
+ u_top.dataMemory.sram_even_words_96/HI
+ u_top.dataMemory.sram_even_words_97/HI
+ u_top.dataMemory.sram_even_words_98/HI
+ u_top.dataMemory.sram_even_words_99/HI
+ u_top.dataMemory.sram_odd_words/dout0[0]
+ u_top.dataMemory.sram_odd_words/dout0[10]
+ u_top.dataMemory.sram_odd_words/dout0[11]
+ u_top.dataMemory.sram_odd_words/dout0[12]
+ u_top.dataMemory.sram_odd_words/dout0[13]
+ u_top.dataMemory.sram_odd_words/dout0[14]
+ u_top.dataMemory.sram_odd_words/dout0[15]
+ u_top.dataMemory.sram_odd_words/dout0[16]
+ u_top.dataMemory.sram_odd_words/dout0[17]
+ u_top.dataMemory.sram_odd_words/dout0[18]
+ u_top.dataMemory.sram_odd_words/dout0[19]
+ u_top.dataMemory.sram_odd_words/dout0[1]
+ u_top.dataMemory.sram_odd_words/dout0[20]
+ u_top.dataMemory.sram_odd_words/dout0[21]
+ u_top.dataMemory.sram_odd_words/dout0[22]
+ u_top.dataMemory.sram_odd_words/dout0[23]
+ u_top.dataMemory.sram_odd_words/dout0[24]
+ u_top.dataMemory.sram_odd_words/dout0[25]
+ u_top.dataMemory.sram_odd_words/dout0[26]
+ u_top.dataMemory.sram_odd_words/dout0[27]
+ u_top.dataMemory.sram_odd_words/dout0[28]
+ u_top.dataMemory.sram_odd_words/dout0[29]
+ u_top.dataMemory.sram_odd_words/dout0[2]
+ u_top.dataMemory.sram_odd_words/dout0[30]
+ u_top.dataMemory.sram_odd_words/dout0[31]
+ u_top.dataMemory.sram_odd_words/dout0[3]
+ u_top.dataMemory.sram_odd_words/dout0[4]
+ u_top.dataMemory.sram_odd_words/dout0[5]
+ u_top.dataMemory.sram_odd_words/dout0[6]
+ u_top.dataMemory.sram_odd_words/dout0[7]
+ u_top.dataMemory.sram_odd_words/dout0[8]
+ u_top.dataMemory.sram_odd_words/dout0[9]
+ u_top.dataMemory.sram_odd_words/dout1[0]
+ u_top.dataMemory.sram_odd_words/dout1[10]
+ u_top.dataMemory.sram_odd_words/dout1[11]
+ u_top.dataMemory.sram_odd_words/dout1[12]
+ u_top.dataMemory.sram_odd_words/dout1[13]
+ u_top.dataMemory.sram_odd_words/dout1[14]
+ u_top.dataMemory.sram_odd_words/dout1[15]
+ u_top.dataMemory.sram_odd_words/dout1[16]
+ u_top.dataMemory.sram_odd_words/dout1[17]
+ u_top.dataMemory.sram_odd_words/dout1[18]
+ u_top.dataMemory.sram_odd_words/dout1[19]
+ u_top.dataMemory.sram_odd_words/dout1[1]
+ u_top.dataMemory.sram_odd_words/dout1[20]
+ u_top.dataMemory.sram_odd_words/dout1[21]
+ u_top.dataMemory.sram_odd_words/dout1[22]
+ u_top.dataMemory.sram_odd_words/dout1[23]
+ u_top.dataMemory.sram_odd_words/dout1[24]
+ u_top.dataMemory.sram_odd_words/dout1[25]
+ u_top.dataMemory.sram_odd_words/dout1[26]
+ u_top.dataMemory.sram_odd_words/dout1[27]
+ u_top.dataMemory.sram_odd_words/dout1[28]
+ u_top.dataMemory.sram_odd_words/dout1[29]
+ u_top.dataMemory.sram_odd_words/dout1[2]
+ u_top.dataMemory.sram_odd_words/dout1[30]
+ u_top.dataMemory.sram_odd_words/dout1[31]
+ u_top.dataMemory.sram_odd_words/dout1[3]
+ u_top.dataMemory.sram_odd_words/dout1[4]
+ u_top.dataMemory.sram_odd_words/dout1[5]
+ u_top.dataMemory.sram_odd_words/dout1[6]
+ u_top.dataMemory.sram_odd_words/dout1[7]
+ u_top.dataMemory.sram_odd_words/dout1[8]
+ u_top.dataMemory.sram_odd_words/dout1[9]
+ u_top.dataMemory.sram_odd_words_113/HI
+ u_top.dataMemory.sram_odd_words_114/HI
+ u_top.dataMemory.sram_odd_words_115/HI
+ u_top.dataMemory.sram_odd_words_116/HI
+ u_top.dataMemory.sram_odd_words_117/HI
+ u_top.dataMemory.sram_odd_words_118/HI
+ u_top.dataMemory.sram_odd_words_119/HI
+ u_top.dataMemory.sram_odd_words_120/HI
+ u_top.dataMemory.sram_odd_words_121/HI
+ u_top.dataMemory.sram_odd_words_122/HI
+ u_top.dataMemory.sram_odd_words_123/HI
+ u_top.dataMemory.sram_odd_words_124/HI
+ u_top.dataMemory.sram_odd_words_125/HI
+ u_top.dataMemory.sram_odd_words_126/HI
+ u_top.dataMemory.sram_odd_words_127/HI
+ u_top.dataMemory.sram_odd_words_128/HI
+ u_top.dataMemory.sram_odd_words_129/HI
+ u_top.dataMemory.sram_odd_words_130/HI
+ u_top.dataMemory.sram_odd_words_131/HI
+ u_top.dataMemory.sram_odd_words_132/HI
+ u_top.dataMemory.sram_odd_words_133/HI
+ u_top.dataMemory.sram_odd_words_134/HI
+ u_top.dataMemory.sram_odd_words_135/HI
+ u_top.dataMemory.sram_odd_words_136/HI
+ u_top.dataMemory.sram_odd_words_137/HI
+ u_top.dataMemory.sram_odd_words_138/HI
+ u_top.dataMemory.sram_odd_words_139/HI
+ u_top.dataMemory.sram_odd_words_140/HI
+ u_top.dataMemory.sram_odd_words_141/HI
+ u_top.dataMemory.sram_odd_words_142/HI
+ u_top.dataMemory.sram_odd_words_143/HI
+ u_top.dataMemory.sram_odd_words_144/HI
+ u_top.dataMemory.sram_odd_words_145/HI
+ u_top.dataMemory.sram_odd_words_146/HI
+ u_top.dataMemory.sram_odd_words_147/HI
+ u_top.dataMemory.sram_odd_words_148/HI
+ u_top.dataMemory.sram_odd_words_149/HI
+ u_top.dataMemory.sram_odd_words_150/HI
+ u_top.dataMemory.sram_odd_words_151/HI
+ u_top.dataMemory.sram_odd_words_152/HI
+ u_top.dataMemory.sram_odd_words_153/HI
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 26
+max fanout violation count 1
+max cap violation count 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================

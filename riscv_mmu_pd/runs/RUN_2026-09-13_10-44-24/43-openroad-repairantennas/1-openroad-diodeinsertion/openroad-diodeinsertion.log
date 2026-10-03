@@ -1,0 +1,36 @@
+Reading timing models for corner nom_tt_025C_1v80…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+Reading OpenROAD database at '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/41-openroad-repairdesignpostgrt/SoC_Hardened.odb'…
+Reading design constraints file at '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/impl.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 2.0
+[INFO] Setting input delay to: 2.0
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5.0%
+[INFO] No information on clock propagation in input SDC file-- propagating all clocks.
++ repair_antennas sky130_fd_sc_hd__diode_2 -iterations 3 -ratio_margin 10
+[INFO GRT-0012] Found 4 antenna violations.
+[INFO GRT-0302] Inserted 5 jumpers for 4 nets.
+[INFO GRT-0012] Found 0 antenna violations.
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+^.*sram_even_words$ matched with u_top.dataMemory.sram_even_words
+^.*sram_odd_words$ matched with u_top.dataMemory.sram_odd_words
+[INFO ODB-0403] 0 connections made, 0 conflicts skipped.
+Updating metrics…
+Cell type report:                       Count       Area
+  Macro                                     2  569076.95
+  Fill cell                              1526    5727.99
+  Tap cell                              11929   14925.56
+  Buffer                                  323    1622.81
+  Clock buffer                             32     658.13
+  Timing Repair Buffer                    112     932.14
+  Inverter                                 34     130.12
+  Sequential cell                         130    2833.97
+  Multi-Input combinational cell          422    3412.02
+  Total                                 14510  599319.70
+Writing OpenROAD database to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/43-openroad-repairantennas/1-openroad-diodeinsertion/SoC_Hardened.odb'…
+Writing layout to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/43-openroad-repairantennas/1-openroad-diodeinsertion/SoC_Hardened.def'…

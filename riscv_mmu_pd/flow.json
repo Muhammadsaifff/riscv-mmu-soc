@@ -1,0 +1,35 @@
+{
+    "default_part": "xc7a100tcsg324-1",
+    "values": {
+        "top": "fpga_top",
+        "part": "xc7a100tcsg324-1"
+    },
+    "dependencies": {
+        "sources": [
+            "fpga_top.v",
+            "Top.v",
+            "Single_Cycle_RV32I.v",
+            "alu32.v",
+            "control_logic.v",
+            "datapath.v",
+            "regfile.v",
+            "adder.v",
+            "extend.v",
+            "mux2.v",
+            "mux4.v",
+            "flopr.v",
+            "mmu.v",
+            "tlb.v",
+            "page_table.v",
+            "fault_handler.v",
+            "apb_mmu_control.v",
+            "uart_tx.v",
+            "gpio_debug.v",
+            "imem.v",
+            "dmem.v"
+        ],
+        "xdc": [
+            "arty.xdc"
+        ]
+    }
+}

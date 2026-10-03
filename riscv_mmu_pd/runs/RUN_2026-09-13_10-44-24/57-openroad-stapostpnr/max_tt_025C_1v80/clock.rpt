@@ -1,0 +1,42 @@
+Clock: clk
+Sources: clk 
+Generated: no
+Virtual: yes
+Propagated: no
+Period: 10.000000
+
+===========================================================================
+report_clock_properties
+============================================================================
+Clock                   Period          Waveform
+----------------------------------------------------
+clk                  10.000000    0.000000  5.000000
+
+===========================================================================
+report_clock_latency
+============================================================================
+Clock clk
+rise -> rise
+    min     max
+0.000000 0.000000 source latency
+1.040389         network latency u_top.dataMemory.sram_even_words/clk1
+        1.380031 network latency _1567_/CLK
+---------------
+1.040389 1.380031 latency
+        0.339641 skew
+
+fall -> fall
+    min     max
+0.000000 0.000000 source latency
+0.811641         network latency u_top.dataMemory.sram_even_words/clk1
+        1.161063 network latency _1567_/CLK
+---------------
+0.811641 1.161063 latency
+        0.349423 skew
+
+
+
+===========================================================================
+report_clock_min_period
+============================================================================
+clk period_min = 4.75 fmax = 210.66

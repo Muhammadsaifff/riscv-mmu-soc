@@ -1,0 +1,15 @@
+module apb_sva(apb_if vif);
+  default clocking cb @(posedge vif.clk); endclocking
+
+  a_penable_requires_psel:
+    assert property(vif.penable |-> vif.psel)
+    else $error("APB: PENABLE asserted without PSEL");
+
+  a_pready_requires_access:
+    assert property(vif.pready |-> (vif.psel && vif.penable))
+    else $error("APB: PREADY asserted outside access phase");
+
+  a_setup_to_access:
+    assert property((vif.psel && !vif.penable) |=> (vif.psel && vif.penable))
+    else $error("APB: setup phase was not followed by access phase");
+endmodule

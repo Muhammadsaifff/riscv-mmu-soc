@@ -1,0 +1,461 @@
+// 4-KiB SRAM-backed byte-addressable data memory.
+//
+// External interface is unchanged from the original dmem module.
+// Access encoding:
+//   000 = LW / SW
+//   001 = LHU / SH
+//   101 = LH
+//   010 = LBU / SB
+//   110 = LB
+//
+// Storage implementation:
+//   two sky130_sram_2kbyte_1rw1r_32x512_8 macros
+//   512 x 32 bits each = 2 KiB each
+//   total = 4 KiB
+//
+// Words are interleaved by word-address LSB. Adjacent 32-bit words
+// therefore live in different SRAM macros, allowing an unaligned
+// half/word access crossing a word boundary to use both banks.
+//
+// The SKY130 SRAM read ports are synchronous.
+
+module dmem #(parameter MEM_BYTES=4096)(
+    input  wire [31:0] a,
+    output reg  [31:0] rd,
+    input  wire [31:0] wd,
+    input  wire        clk,
+    input  wire        we,
+    input  wire [2:0]  mode,
+    input  wire        reset,
+    output wire        clear_active
+`ifdef USE_POWER_PINS
+    ,inout wire vccd1
+    ,inout wire vssd1
+`endif
+);
+
+    localparam WORDS = 1024;
+
+    reg       clearing;
+    reg [9:0] clear_word;
+    reg       clear_last_pending;
+
+    // ------------------------------------------------------------
+    // Request decode
+    // ------------------------------------------------------------
+    wire        addr_ok         = (a < MEM_BYTES);
+    wire [9:0]  word_addr       = a[11:2];
+    wire [8:0]  local_addr      = word_addr[9:1];
+    wire        bank            = word_addr[0];
+    wire [9:0]  next_word_addr  = word_addr + 10'd1;
+    wire [8:0]  next_local_addr = next_word_addr[9:1];
+    wire        next_bank       = next_word_addr[0];
+    wire [1:0]  lane            = a[1:0];
+
+    assign clear_active = clearing;
+
+    // ------------------------------------------------------------
+    // SRAM port-0 controls (read/write port)
+    // ------------------------------------------------------------
+    reg         s0_csb0;
+    reg         s0_web0;
+    reg  [3:0]  s0_wmask0;
+    reg  [8:0]  s0_addr0;
+    reg  [31:0] s0_din0;
+    wire [31:0] s0_dout0;
+
+    reg         s1_csb0;
+    reg         s1_web0;
+    reg  [3:0]  s1_wmask0;
+    reg  [8:0]  s1_addr0;
+    reg  [31:0] s1_din0;
+    wire [31:0] s1_dout0;
+
+    // ------------------------------------------------------------
+    // SRAM port-1 controls (read-only port)
+    // ------------------------------------------------------------
+    reg         s0_csb1;
+    reg  [8:0]  s0_addr1;
+    wire [31:0] s0_dout1;
+
+    reg         s1_csb1;
+    reg  [8:0]  s1_addr1;
+    wire [31:0] s1_dout1;
+
+    (* keep = "true", dont_touch = "true" *)
+    sky130_sram_2kbyte_1rw1r_32x512_8 sram_even_words (
+`ifdef USE_POWER_PINS
+        .vccd1 (vccd1),
+        .vssd1 (vssd1),
+`endif
+        .clk0   (clk),
+        .csb0   (s0_csb0),
+        .web0   (s0_web0),
+        .wmask0 (s0_wmask0),
+        .addr0  (s0_addr0),
+        .din0   (s0_din0),
+        .dout0  (s0_dout0),
+        .clk1   (clk),
+        .csb1   (s0_csb1),
+        .addr1  (s0_addr1),
+        .dout1  (s0_dout1)
+    );
+
+    (* keep = "true", dont_touch = "true" *)
+    sky130_sram_2kbyte_1rw1r_32x512_8 sram_odd_words (
+`ifdef USE_POWER_PINS
+        .vccd1 (vccd1),
+        .vssd1 (vssd1),
+`endif
+        .clk0   (clk),
+        .csb0   (s1_csb0),
+        .web0   (s1_web0),
+        .wmask0 (s1_wmask0),
+        .addr0  (s1_addr0),
+        .din0   (s1_din0),
+        .dout0  (s1_dout0),
+        .clk1   (clk),
+        .csb1   (s1_csb1),
+        .addr1  (s1_addr1),
+        .dout1  (s1_dout1)
+    );
+
+    // ------------------------------------------------------------
+    // Build write masks/data for current and next 32-bit words.
+    // No procedural integer temporaries are used, avoiding inferred
+    // latches from incomplete assignments.
+    // ------------------------------------------------------------
+    reg  [3:0]  wr_mask_cur;
+    reg  [31:0] wr_data_cur;
+    reg  [3:0]  wr_mask_next;
+    reg  [31:0] wr_data_next;
+
+    always @(*) begin
+        wr_mask_cur  = 4'b0000;
+        wr_data_cur  = 32'h00000000;
+        wr_mask_next = 4'b0000;
+        wr_data_next = 32'h00000000;
+
+        case (mode)
+
+            // SB
+            3'b010,
+            3'b110: begin
+                if (addr_ok) begin
+                    case (lane)
+                        2'd0: begin
+                            wr_mask_cur = 4'b0001;
+                            wr_data_cur = {24'h0, wd[7:0]};
+                        end
+                        2'd1: begin
+                            wr_mask_cur = 4'b0010;
+                            wr_data_cur = {16'h0, wd[7:0], 8'h0};
+                        end
+                        2'd2: begin
+                            wr_mask_cur = 4'b0100;
+                            wr_data_cur = {8'h0, wd[7:0], 16'h0};
+                        end
+                        default: begin
+                            wr_mask_cur = 4'b1000;
+                            wr_data_cur = {wd[7:0], 24'h0};
+                        end
+                    endcase
+                end
+            end
+
+            // SH
+            3'b001,
+            3'b101: begin
+                if ((a + 32'd1) < MEM_BYTES) begin
+                    case (lane)
+                        2'd0: begin
+                            wr_mask_cur = 4'b0011;
+                            wr_data_cur = {16'h0, wd[15:0]};
+                        end
+                        2'd1: begin
+                            wr_mask_cur = 4'b0110;
+                            wr_data_cur = {8'h0, wd[15:0], 8'h0};
+                        end
+                        2'd2: begin
+                            wr_mask_cur = 4'b1100;
+                            wr_data_cur = {wd[15:0], 16'h0};
+                        end
+                        default: begin
+                            wr_mask_cur  = 4'b1000;
+                            wr_data_cur  = {wd[7:0], 24'h0};
+                            wr_mask_next = 4'b0001;
+                            wr_data_next = {24'h0, wd[15:8]};
+                        end
+                    endcase
+                end
+            end
+
+            // SW
+            default: begin
+                if ((a + 32'd3) < MEM_BYTES) begin
+                    case (lane)
+                        2'd0: begin
+                            wr_mask_cur = 4'b1111;
+                            wr_data_cur = wd;
+                        end
+                        2'd1: begin
+                            wr_mask_cur  = 4'b1110;
+                            wr_data_cur  = {wd[23:0], 8'h0};
+                            wr_mask_next = 4'b0001;
+                            wr_data_next = {24'h0, wd[31:24]};
+                        end
+                        2'd2: begin
+                            wr_mask_cur  = 4'b1100;
+                            wr_data_cur  = {wd[15:0], 16'h0};
+                            wr_mask_next = 4'b0011;
+                            wr_data_next = {16'h0, wd[31:16]};
+                        end
+                        default: begin
+                            wr_mask_cur  = 4'b1000;
+                            wr_data_cur  = {wd[7:0], 24'h0};
+                            wr_mask_next = 4'b0111;
+                            wr_data_next = {8'h0, wd[31:8]};
+                        end
+                    endcase
+                end
+            end
+        endcase
+    end
+
+    // ------------------------------------------------------------
+    // Latch read request metadata.
+    // ------------------------------------------------------------
+    reg       rd_pending;
+    reg [2:0] rd_mode_q;
+    reg [1:0] rd_lane_q;
+    reg       rd_cross_q;
+    reg       rd_bank_q;
+
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            rd_pending <= 1'b0;
+            rd_mode_q  <= 3'b000;
+            rd_lane_q  <= 2'b00;
+            rd_cross_q <= 1'b0;
+            rd_bank_q  <= 1'b0;
+        end
+        else if (clearing) begin
+            rd_pending <= 1'b0;
+        end
+        else begin
+            rd_pending <= (!we && addr_ok);
+            rd_mode_q  <= mode;
+            rd_lane_q  <= lane;
+            rd_cross_q <= ((mode == 3'b001 || mode == 3'b101) && lane == 2'd3) ||
+                          ((mode == 3'b000) && lane != 2'd0);
+            rd_bank_q  <= bank;
+        end
+    end
+
+    // ------------------------------------------------------------
+    // SRAM control
+    // ------------------------------------------------------------
+    always @(*) begin
+        s0_csb0   = 1'b1;
+        s0_web0   = 1'b1;
+        s0_wmask0 = 4'b0000;
+        s0_addr0  = local_addr;
+        s0_din0   = wr_data_cur;
+
+        s1_csb0   = 1'b1;
+        s1_web0   = 1'b1;
+        s1_wmask0 = 4'b0000;
+        s1_addr0  = local_addr;
+        s1_din0   = wr_data_cur;
+
+        s0_csb1   = 1'b1;
+        s1_csb1   = 1'b1;
+        s0_addr1  = local_addr;
+        s1_addr1  = local_addr;
+
+        if (!clearing) begin
+            if (we && addr_ok) begin
+                if (wr_mask_cur != 4'b0000) begin
+                    if (bank == 1'b0) begin
+                        s0_csb0   = 1'b0;
+                        s0_web0   = 1'b0;
+                        s0_wmask0 = wr_mask_cur;
+                        s0_addr0  = local_addr;
+                        s0_din0   = wr_data_cur;
+                    end
+                    else begin
+                        s1_csb0   = 1'b0;
+                        s1_web0   = 1'b0;
+                        s1_wmask0 = wr_mask_cur;
+                        s1_addr0  = local_addr;
+                        s1_din0   = wr_data_cur;
+                    end
+                end
+
+                if (wr_mask_next != 4'b0000) begin
+                    if (next_bank == 1'b0) begin
+                        s0_csb0   = 1'b0;
+                        s0_web0   = 1'b0;
+                        s0_wmask0 = wr_mask_next;
+                        s0_addr0  = next_local_addr;
+                        s0_din0   = wr_data_next;
+                    end
+                    else begin
+                        s1_csb0   = 1'b0;
+                        s1_web0   = 1'b0;
+                        s1_wmask0 = wr_mask_next;
+                        s1_addr0  = next_local_addr;
+                        s1_din0   = wr_data_next;
+                    end
+                end
+            end
+
+            if (!we && addr_ok) begin
+                // Current word
+                if (bank == 1'b0) begin
+                    s0_csb1  = 1'b0;
+                    s0_addr1 = local_addr;
+                end
+                else begin
+                    s1_csb1  = 1'b0;
+                    s1_addr1 = local_addr;
+                end
+
+                // Next word is always in the other bank
+                if (next_bank == 1'b0) begin
+                    s0_csb1  = 1'b0;
+                    s0_addr1 = next_local_addr;
+                end
+                else begin
+                    s1_csb1  = 1'b0;
+                    s1_addr1 = next_local_addr;
+                end
+            end
+        end
+        else begin
+            // Clear one complete word per clock
+            if (clear_word[0] == 1'b0) begin
+                s0_csb0   = 1'b0;
+                s0_web0   = 1'b0;
+                s0_wmask0 = 4'b1111;
+                s0_addr0  = clear_word[9:1];
+                s0_din0   = 32'h00000000;
+            end
+            else begin
+                s1_csb0   = 1'b0;
+                s1_web0   = 1'b0;
+                s1_wmask0 = 4'b1111;
+                s1_addr0  = clear_word[9:1];
+                s1_din0   = 32'h00000000;
+            end
+        end
+    end
+
+    // ------------------------------------------------------------
+    // Reset clear sequencer: 1024 words / 1024 clocks.
+    // ------------------------------------------------------------
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            clearing           <= 1'b1;
+            clear_word         <= 10'd0;
+            clear_last_pending <= 1'b0;
+        end
+        else if (clearing) begin
+            if (clear_last_pending) begin
+                clear_word         <= 10'd0;
+                clear_last_pending <= 1'b0;
+                clearing           <= 1'b0;
+            end
+            else if (clear_word == 10'd1023) begin
+                clear_last_pending <= 1'b1;
+            end
+            else begin
+                clear_word <= clear_word + 10'd1;
+            end
+        end
+    end
+
+    // ------------------------------------------------------------
+    // Read-data formatter
+    // ------------------------------------------------------------
+    reg [31:0] read_cur_word;
+    reg [31:0] read_next_word;
+    reg [7:0]  b0, b1, b2, b3;
+
+    always @(*) begin
+        read_cur_word  = 32'h00000000;
+        read_next_word = 32'h00000000;
+
+        if (rd_bank_q == 1'b0) begin
+            read_cur_word  = s0_dout1;
+            read_next_word = s1_dout1;
+        end
+        else begin
+            read_cur_word  = s1_dout1;
+            read_next_word = s0_dout1;
+        end
+
+        b0 = read_cur_word[7:0];
+        b1 = read_cur_word[15:8];
+        b2 = read_cur_word[23:16];
+        b3 = read_cur_word[31:24];
+
+        rd = 32'h00000000;
+
+        if (rd_pending) begin
+            case (rd_mode_q)
+                // LBU
+                3'b010: begin
+                    case (rd_lane_q)
+                        2'd0: rd = {24'h0, b0};
+                        2'd1: rd = {24'h0, b1};
+                        2'd2: rd = {24'h0, b2};
+                        default: rd = {24'h0, b3};
+                    endcase
+                end
+
+                // LB
+                3'b110: begin
+                    case (rd_lane_q)
+                        2'd0: rd = {{24{b0[7]}}, b0};
+                        2'd1: rd = {{24{b1[7]}}, b1};
+                        2'd2: rd = {{24{b2[7]}}, b2};
+                        default: rd = {{24{b3[7]}}, b3};
+                    endcase
+                end
+
+                // LHU
+                3'b001: begin
+                    case (rd_lane_q)
+                        2'd0: rd = {16'h0, b1, b0};
+                        2'd1: rd = {16'h0, b2, b1};
+                        2'd2: rd = {16'h0, b3, b2};
+                        default: rd = {16'h0, read_next_word[7:0], b3};
+                    endcase
+                end
+
+                // LH
+                3'b101: begin
+                    case (rd_lane_q)
+                        2'd0: rd = {{16{b1[7]}}, b1, b0};
+                        2'd1: rd = {{16{b2[7]}}, b2, b1};
+                        2'd2: rd = {{16{b3[7]}}, b3, b2};
+                        default: rd = {{16{read_next_word[7]}},
+                                       read_next_word[7:0], b3};
+                    endcase
+                end
+
+                // LW
+                default: begin
+                    case (rd_lane_q)
+                        2'd0: rd = {b3, b2, b1, b0};
+                        2'd1: rd = {read_next_word[7:0],  b3, b2, b1};
+                        2'd2: rd = {read_next_word[15:0], b3, b2};
+                        default: rd = {read_next_word[23:0], b3};
+                    endcase
+                end
+            endcase
+        end
+    end
+
+endmodule

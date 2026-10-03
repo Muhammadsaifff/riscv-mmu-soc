@@ -1,0 +1,244 @@
+# //  Questa Sim-64
+# //  Version 2021.2_1 linux_x86_64 May 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+project open /home/saif/riscv_mmu/riscv_mmu
+# Loading project riscv_mmu
+do run_full_soc.do
+# 
+# Clean/recreate simulation library.
+# if {[file exists work]} {
+#     catch {vdel -lib work -all}
+# }
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is saif@dellinator.
+# 0
+# vlib work
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# 
+# Compile complete RV32I + VM + APB + UART + GPIO SoC and full UVM test.
+# vlog -sv -f uvm_soc_full_files.f
+# QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+# Start time: 19:46:49 on Sep 08,2026
+# vlog -reportprogress 300 -sv -f uvm_soc_full_files.f 
+# -- Compiling module adder
+# -- Compiling module alu32
+# -- Compiling module control_logic
+# -- Compiling module datapath
+# -- Compiling module extend
+# -- Compiling module flopr
+# -- Compiling module mux2
+# -- Compiling module mux4
+# -- Compiling module regfile
+# -- Compiling module Single_Cycle_RV32I
+# -- Compiling module imem
+# -- Compiling module dmem
+# -- Compiling module tlb
+# -- Compiling module page_table
+# -- Compiling module mmu
+# -- Compiling module fault_handler
+# -- Compiling module apb_mmu_control
+# -- Compiling module uart_tx
+# -- Compiling module gpio_debug
+# -- Compiling module Top
+# -- Compiling interface apb_if
+# -- Compiling interface vm_status_if
+# -- Compiling interface soc_full_if
+# -- Compiling module vm_sva
+# -- Compiling module apb_sva
+# -- Compiling package vm_apb_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) vm_apb_pkg.sv(4): Using implicit +incdir+/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package soc_full_uvm_pkg
+# -- Importing package vm_apb_pkg
+# -- Compiling module soc_full_uvm_top
+# -- Importing package soc_full_uvm_pkg
+# 
+# Top level modules:
+# 	soc_full_uvm_top
+# End time: 19:46:51 on Sep 08,2026, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# 
+# Run the full SoC UVM test.
+# vsim -voptargs=+acc work.soc_full_uvm_top
+# vsim -voptargs="+acc" work.soc_full_uvm_top 
+# Start time: 19:46:51 on Sep 08,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: Top.v(95): (vopt-2685) [TFMPC] - Too few port connections for 'dataMemory'.  Expected 8, found 7.
+# ** Warning: Top.v(95): (vopt-2718) [TFMPC] - Missing connection for port 'clear_active'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# Loading sv_std.std
+# Loading work.soc_full_if(fast)
+# Loading work.apb_if(fast)
+# Loading work.vm_status_if(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.vm_apb_pkg(fast)
+# Loading work.soc_full_uvm_pkg(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.soc_full_uvm_top(fast)
+# Loading work.apb_if(fast__2)
+# Loading work.vm_status_if(fast__2)
+# Loading work.soc_full_if(fast__2)
+# Loading work.Top(fast)
+# Loading work.Single_Cycle_RV32I(fast)
+# Loading work.datapath(fast)
+# Loading work.regfile(fast)
+# Loading work.flopr(fast)
+# Loading work.extend(fast)
+# Loading work.mux2(fast)
+# Loading work.alu32(fast)
+# Loading work.adder(fast)
+# Loading work.mux4(fast)
+# Loading work.control_logic(fast)
+# Loading work.mmu(fast)
+# Loading work.tlb(fast)
+# Loading work.page_table(fast)
+# Loading work.dmem(fast)
+# Loading work.imem(fast)
+# Loading work.fault_handler(fast)
+# Loading work.apb_mmu_control(fast)
+# Loading work.uart_tx(fast)
+# Loading work.gpio_debug(fast)
+# Loading work.apb_sva(fast)
+# Loading work.vm_sva(fast)
+# Loading /home/saif/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
+# run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test soc_full_test...
+# UVM_INFO soc_full_uvm_pkg.sv(113) @ 0: uvm_test_top [SOC] ==============================================
+# UVM_INFO soc_full_uvm_pkg.sv(114) @ 0: uvm_test_top [SOC] STARTING FULL RV32I + MMU + APB SOC TEST
+# UVM_INFO soc_full_uvm_pkg.sv(115) @ 0: uvm_test_top [SOC] ==============================================
+# UVM_INFO soc_full_uvm_pkg.sv(98) @ 65000: uvm_test_top [SOC] PASS: MMU reset enable = 1
+# UVM_INFO vm_apb_pkg.sv(2485) @ 65000: uvm_test_top.env.agent.seqr@@integ [INTEG] ==============================================
+# UVM_INFO vm_apb_pkg.sv(2492) @ 65000: uvm_test_top.env.agent.seqr@@integ [INTEG] Starting MMU integration test
+# UVM_INFO vm_apb_pkg.sv(2499) @ 65000: uvm_test_top.env.agent.seqr@@integ [INTEG] ==============================================
+# UVM_INFO vm_apb_pkg.sv(2510) @ 65000: uvm_test_top.env.agent.seqr@@integ [INTEG] STEP 1: Configure executable PTE0
+# UVM_INFO vm_apb_pkg.sv(2356) @ 95000: uvm_test_top.env.agent.seqr@@integ [INTEG] APB WRITE addr=00000010 data=00f00000
+# UVM_INFO vm_apb_pkg.sv(2531) @ 125000: uvm_test_top.env.agent.seqr@@integ [INTEG] STEP 2: Configure writable data PTE1
+# UVM_INFO vm_apb_pkg.sv(2356) @ 145000: uvm_test_top.env.agent.seqr@@integ [INTEG] APB WRITE addr=00000014 data=00700001
+# UVM_INFO vm_apb_pkg.sv(2552) @ 175000: uvm_test_top.env.agent.seqr@@integ [INTEG] STEP 3: Enable MMU
+# UVM_INFO vm_apb_pkg.sv(2356) @ 195000: uvm_test_top.env.agent.seqr@@integ [INTEG] APB WRITE addr=00000000 data=00000001
+# UVM_INFO vm_apb_pkg.sv(2573) @ 235000: uvm_test_top.env.agent.seqr@@integ [INTEG] STEP 4: Flush TLB
+# UVM_INFO vm_apb_pkg.sv(2356) @ 255000: uvm_test_top.env.agent.seqr@@integ [INTEG] APB WRITE addr=00000000 data=00000003
+# UVM_INFO vm_apb_pkg.sv(2606) @ 295000: uvm_test_top.env.agent.seqr@@integ [INTEG] STEP 5: Run program with valid writable PTE1
+# UVM_INFO vm_apb_pkg.sv(2630) @ 495000: uvm_test_top.env.agent.seqr@@integ [INTEG] STEP 6: Change PTE1 to READ-ONLY
+# UVM_INFO vm_apb_pkg.sv(2356) @ 515000: uvm_test_top.env.agent.seqr@@integ [INTEG] APB WRITE addr=00000014 data=00300001
+# UVM_INFO vm_apb_pkg.sv(2652) @ 545000: uvm_test_top.env.agent.seqr@@integ [INTEG] STEP 7: Flush TLB after PTE1 permission change
+# UVM_INFO vm_apb_pkg.sv(2356) @ 565000: uvm_test_top.env.agent.seqr@@integ [INTEG] APB WRITE addr=00000000 data=00000003
+# UVM_INFO vm_apb_pkg.sv(2678) @ 605000: uvm_test_top.env.agent.seqr@@integ [INTEG] STEP 8: Checking D permission fault
+# UVM_INFO vm_apb_pkg.sv(2420) @ 725000: uvm_test_top.env.agent.seqr@@integ [INTEG] APB READ addr=00000008 data=00000a30
+# UVM_INFO vm_apb_pkg.sv(2694) @ 725000: uvm_test_top.env.agent.seqr@@integ [INTEG] STATUS after READ-ONLY PTE1 = 00000a30
+# UVM_INFO vm_apb_pkg.sv(2729) @ 725000: uvm_test_top.env.agent.seqr@@integ [INTEG] PASS: D permission fault detected at STATUS[4]
+# UVM_INFO vm_apb_pkg.sv(2752) @ 725000: uvm_test_top.env.agent.seqr@@integ [INTEG] STEP 9: Checking D sticky fault status
+# UVM_INFO vm_apb_pkg.sv(2771) @ 725000: uvm_test_top.env.agent.seqr@@integ [INTEG] PASS: D sticky permission fault detected at STATUS[9]
+# UVM_INFO vm_apb_pkg.sv(2786) @ 725000: uvm_test_top.env.agent.seqr@@integ [INTEG] STEP 10: Restore writable PTE1
+# UVM_INFO vm_apb_pkg.sv(2356) @ 755000: uvm_test_top.env.agent.seqr@@integ [INTEG] APB WRITE addr=00000014 data=00700001
+# UVM_INFO vm_apb_pkg.sv(2356) @ 805000: uvm_test_top.env.agent.seqr@@integ [INTEG] APB WRITE addr=00000000 data=00000003
+# UVM_INFO vm_apb_pkg.sv(2817) @ 845000: uvm_test_top.env.agent.seqr@@integ [INTEG] STEP 11: UART test
+# UVM_INFO vm_apb_pkg.sv(2356) @ 865000: uvm_test_top.env.agent.seqr@@integ [INTEG] APB WRITE addr=00000080 data=00000055
+# UVM_INFO vm_apb_pkg.sv(2420) @ 935000: uvm_test_top.env.agent.seqr@@integ [INTEG] APB READ addr=00000084 data=00000001
+# UVM_INFO vm_apb_pkg.sv(2839) @ 935000: uvm_test_top.env.agent.seqr@@integ [INTEG] UART_STATUS=00000001
+# UVM_INFO vm_apb_pkg.sv(2854) @ 935000: uvm_test_top.env.agent.seqr@@integ [INTEG] ==============================================
+# UVM_INFO vm_apb_pkg.sv(2861) @ 935000: uvm_test_top.env.agent.seqr@@integ [INTEG] Integration sequence completed
+# UVM_INFO vm_apb_pkg.sv(2868) @ 935000: uvm_test_top.env.agent.seqr@@integ [INTEG] ==============================================
+# UVM_INFO soc_full_uvm_pkg.sv(135) @ 935000: uvm_test_top [SOC] Waiting for DMEM reset initialization...
+# UVM_INFO soc_full_uvm_pkg.sv(159) @ 22495000: uvm_test_top [SOC] ----------------------------------------------
+# UVM_INFO soc_full_uvm_pkg.sv(160) @ 22495000: uvm_test_top [SOC] CHECKING RV32I CPU / REGISTER FILE
+# UVM_INFO soc_full_uvm_pkg.sv(161) @ 22495000: uvm_test_top [SOC] ----------------------------------------------
+# UVM_INFO soc_full_uvm_pkg.sv(91) @ 22495000: uvm_test_top [SOC] PASS: x0 = 00000000
+# UVM_INFO soc_full_uvm_pkg.sv(91) @ 22495000: uvm_test_top [SOC] PASS: x1 = 0000000a
+# UVM_INFO soc_full_uvm_pkg.sv(91) @ 22495000: uvm_test_top [SOC] PASS: x2 = 00000014
+# UVM_INFO soc_full_uvm_pkg.sv(91) @ 22495000: uvm_test_top [SOC] PASS: x3 = 0000001e
+# UVM_INFO soc_full_uvm_pkg.sv(91) @ 22495000: uvm_test_top [SOC] PASS: x4 = 00000014
+# UVM_INFO soc_full_uvm_pkg.sv(91) @ 22495000: uvm_test_top [SOC] PASS: x5 = 0000002a
+# UVM_INFO soc_full_uvm_pkg.sv(91) @ 22495000: uvm_test_top [SOC] PASS: x6 = 00001000
+# UVM_INFO soc_full_uvm_pkg.sv(91) @ 22495000: uvm_test_top [SOC] PASS: x7 = 0000002a
+# UVM_INFO soc_full_uvm_pkg.sv(172) @ 22495000: uvm_test_top [SOC] ----------------------------------------------
+# UVM_INFO soc_full_uvm_pkg.sv(173) @ 22495000: uvm_test_top [SOC] CHECKING IMEM / PC EXECUTION
+# UVM_INFO soc_full_uvm_pkg.sv(174) @ 22495000: uvm_test_top [SOC] ----------------------------------------------
+# UVM_INFO soc_full_uvm_pkg.sv(179) @ 22495000: uvm_test_top [SOC] PASS: PC word aligned = 00000030
+# UVM_INFO soc_full_uvm_pkg.sv(186) @ 22495000: uvm_test_top [SOC] PASS: IMEM instruction active = fe9ff06f
+# UVM_INFO soc_full_uvm_pkg.sv(189) @ 22495000: uvm_test_top [SOC] ----------------------------------------------
+# UVM_INFO soc_full_uvm_pkg.sv(190) @ 22495000: uvm_test_top [SOC] CHECKING DMEM STORE / LOAD
+# UVM_INFO soc_full_uvm_pkg.sv(191) @ 22495000: uvm_test_top [SOC] ----------------------------------------------
+# UVM_INFO soc_full_uvm_pkg.sv(91) @ 22495000: uvm_test_top [SOC] PASS: DMEM[0x1000] = 0000002a
+# UVM_INFO soc_full_uvm_pkg.sv(198) @ 22495000: uvm_test_top [SOC] PASS: DMEM store commit observed
+# UVM_INFO soc_full_uvm_pkg.sv(203) @ 22495000: uvm_test_top [SOC] PASS: CPU generated data-memory write
+# UVM_INFO soc_full_uvm_pkg.sv(208) @ 22495000: uvm_test_top [SOC] PASS: data VA 0x1000 translated to PA 0x1000
+# UVM_INFO soc_full_uvm_pkg.sv(210) @ 22495000: uvm_test_top [SOC] ----------------------------------------------
+# UVM_INFO soc_full_uvm_pkg.sv(211) @ 22495000: uvm_test_top [SOC] CHECKING MMU / TLB / FAULT STATE
+# UVM_INFO soc_full_uvm_pkg.sv(212) @ 22495000: uvm_test_top [SOC] ----------------------------------------------
+# UVM_INFO soc_full_uvm_pkg.sv(217) @ 22525000: uvm_test_top [SOC] Final STATUS=00000a30
+# UVM_INFO soc_full_uvm_pkg.sv(98) @ 22525000: uvm_test_top [SOC] PASS: MMU enabled = 1
+# UVM_INFO soc_full_uvm_pkg.sv(225) @ 22525000: uvm_test_top [SOC] ----------------------------------------------
+# UVM_INFO soc_full_uvm_pkg.sv(226) @ 22525000: uvm_test_top [SOC] CHECKING UART
+# UVM_INFO soc_full_uvm_pkg.sv(227) @ 22525000: uvm_test_top [SOC] ----------------------------------------------
+# UVM_INFO soc_full_uvm_pkg.sv(35) @ 22585000: uvm_test_top.env.agent.seqr@@uart_seq [SOC] UART_STATUS=00000001
+# UVM_INFO soc_full_uvm_pkg.sv(232) @ 22585000: uvm_test_top [SOC] ----------------------------------------------
+# UVM_INFO soc_full_uvm_pkg.sv(233) @ 22585000: uvm_test_top [SOC] CHECKING GPIO DEBUG OUTPUT
+# UVM_INFO soc_full_uvm_pkg.sv(234) @ 22585000: uvm_test_top [SOC] ----------------------------------------------
+# UVM_INFO soc_full_uvm_pkg.sv(239) @ 22585000: uvm_test_top [SOC] PASS: GPIO=0187
+# UVM_INFO soc_full_uvm_pkg.sv(241) @ 22585000: uvm_test_top [SOC] ==============================================
+# UVM_INFO soc_full_uvm_pkg.sv(242) @ 22585000: uvm_test_top [SOC] FULL SOC TEST COMPLETED
+# UVM_INFO soc_full_uvm_pkg.sv(243) @ 22585000: uvm_test_top [SOC] CPU + CONTROL + DATAPATH + REGFILE + ALU
+# UVM_INFO soc_full_uvm_pkg.sv(244) @ 22585000: uvm_test_top [SOC] IMEM + DMEM + MMU + TLB + PAGE TABLE
+# UVM_INFO soc_full_uvm_pkg.sv(245) @ 22585000: uvm_test_top [SOC] APB + FAULT HANDLER + UART + GPIO
+# UVM_INFO soc_full_uvm_pkg.sv(246) @ 22585000: uvm_test_top [SOC] ==============================================
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 22585000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO vm_apb_pkg.sv(1677) @ 22585000: uvm_test_top.env.apb_cov [APB_COV] APB coverage=53.93%
+# UVM_INFO vm_apb_pkg.sv(1557) @ 22585000: uvm_test_top.env.sb [VM_SB] PASS: 2255 VM status samples checked
+# UVM_INFO vm_apb_pkg.sv(1813) @ 22585000: uvm_test_top.env.vm_cov [VM_COV] VM coverage=73.05%
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   86
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [APB_COV]     1
+# [INTEG]    32
+# [Questa UVM]     2
+# [RNTST]     1
+# [SOC]    47
+# [TEST_DONE]     1
+# [VM_COV]     1
+# [VM_SB]     1
+# ** Note: $finish    : /home/saif/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 22585 ns  Iteration: 70  Instance: /soc_full_uvm_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at /home/saif/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+# 
+# 

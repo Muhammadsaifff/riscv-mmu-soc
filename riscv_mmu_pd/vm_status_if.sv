@@ -1,0 +1,8 @@
+interface vm_status_if(input logic clk);
+  logic reset;
+  logic mmu_enable;
+  logic [31:0] i_va, i_pa, d_va, d_pa;
+  logic i_valid, d_valid, d_write, d_write_commit;
+  logic i_fault, d_fault, i_perm_fault, d_perm_fault;
+  logic i_tlb_hit, d_tlb_hit, i_tlb_miss, d_tlb_miss;
+endinterface

@@ -1,0 +1,153 @@
+// DESCRIPTION: Verilator output: Waivers generated with --waiver-output
+
+`verilator_config
+
+// Below are suggested waivers. You have three options:
+//   1. Fix the reason for the linter warning in the Verilog sources
+//   2. Keep the waiver permanently if you are sure it is okay
+//   3. Keep the waiver temporarily to suppress the output
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_i_va'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_i_pa'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_d_va'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_d_pa'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_i_valid'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_d_valid'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_d_write'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_i_fault'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_d_fault'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_i_perm_fault'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_d_perm_fault'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_i_tlb_hit'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_d_tlb_hit'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_i_tlb_miss'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_d_tlb_miss'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_mmu_enable'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_uart_busy'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_d_write_commit'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_i_fault_sticky'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_d_fault_sticky'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_i_perm_sticky'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Instance pin connected by name with empty reference: 'dbg_d_perm_sticky'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_i_va'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_i_pa'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_d_va'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_d_pa'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_i_valid'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_d_valid'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_d_write'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_i_fault'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_d_fault'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_i_perm_fault'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_d_perm_fault'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_i_tlb_hit'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_d_tlb_hit'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_i_tlb_miss'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_d_tlb_miss'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_mmu_enable'*"
+
+// lint_off -rule PINCONNECTEMPTY -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance pin connected by name with empty reference: 'dbg_d_write_commit'*"
+
+// lint_off -rule PINMISSING -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance has missing pin: 'vccd1'*"
+
+// lint_off -rule PINMISSING -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v" -match "Instance has missing pin: 'vssd1'*"
+
+// lint_off -rule WIDTHTRUNC -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/extend.v" -match "Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 33 bits.*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Signal is not used: 'prdata'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Signal is not used: 'pready'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Bits of signal are not used: 'gpio_all'[15:4]*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v" -match "Signal is not used: 'i_refill'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v" -match "Signal is not used: 'd_refill'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v" -match "Signal is not used: 'i_refill_vpn'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v" -match "Signal is not used: 'd_refill_vpn'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v" -match "Signal is not used: 'i_refill_ppn'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v" -match "Signal is not used: 'd_refill_ppn'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v" -match "Signal is not used: 'i_refill_flags'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v" -match "Signal is not used: 'd_refill_flags'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v" -match "Signal is not used: 'ptbr'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/apb_mmu_control.v" -match "Bits of signal are not used: 'paddr'[31:8]*"
+
+// lint_off -rule UNUSEDPARAM -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/dmem.v" -match "Parameter is not used: 'WORDS'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/dmem.v" -match "Signal is not used: 's0_dout0'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/dmem.v" -match "Signal is not used: 's1_dout0'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/dmem.v" -match "Signal is not used: 'rd_cross_q'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/dmem.v" -match "Bits of signal are not used: 'read_next_word'[31:24]*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/gpio_debug.v" -match "Bits of signal are not used: 'pc'[31:12,2:0]*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/mmu.v" -match "Bits of signal are not used: 'f'[4]*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/page_table.v" -match "Bits of signal are not used: 'lookup0_vpn'[19:4]*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/page_table.v" -match "Bits of signal are not used: 'lookup1_vpn'[19:4]*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/uart_tx.v" -match "Bits of signal are not used: 'shift'[0]*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/control_logic.v" -match "Bits of signal are not used: 'inst'[24:15,11:7]*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/control_logic.v" -match "Signal is not used: 'clk'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/control_logic.v" -match "Signal is not used: 'reset'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/datapath.v" -match "Bits of signal are not used: 'Instr'[6:0]*"
+
+// lint_off -rule PROCASSINIT -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/regfile.v" -match "Procedural assignment to declaration with initial value: 'i'*"
+
+// lint_off -rule SYNCASYNCNET -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v" -match "Signal flopped as both synchronous and async: 'reset'*"
+
+// lint_off -rule SYNCASYNCNET -file "*/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v" -match "Signal flopped as both synchronous and async: 'SoC_Hardened.u_top.cpu_reset'*"
+

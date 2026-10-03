@@ -1,0 +1,146 @@
+package mmu_uvm_pkg;
+  import uvm_pkg::*;
+  `include "uvm_macros.svh"
+
+  class mmu_item extends uvm_sequence_item;
+    rand bit cfg;
+    rand bit [3:0] index;
+    rand bit [19:0] ppn;
+    rand bit [4:0] flags;
+    rand bit valid, write, exec;
+    rand bit [31:0] va;
+    bit [31:0] pa;
+    bit fault, perm, hit, miss;
+    `uvm_object_utils_begin(mmu_item)
+      `uvm_field_int(cfg,UVM_ALL_ON) `uvm_field_int(index,UVM_ALL_ON)
+      `uvm_field_int(ppn,UVM_ALL_ON) `uvm_field_int(flags,UVM_ALL_ON)
+      `uvm_field_int(valid,UVM_ALL_ON) `uvm_field_int(write,UVM_ALL_ON)
+      `uvm_field_int(exec,UVM_ALL_ON) `uvm_field_int(va,UVM_ALL_ON)
+      `uvm_field_int(pa,UVM_ALL_ON) `uvm_field_int(fault,UVM_ALL_ON)
+      `uvm_field_int(perm,UVM_ALL_ON) `uvm_field_int(hit,UVM_ALL_ON)
+      `uvm_field_int(miss,UVM_ALL_ON)
+    `uvm_object_utils_end
+    function new(string name="mmu_item"); super.new(name); endfunction
+  endclass
+
+  class mmu_driver extends uvm_driver #(mmu_item);
+    `uvm_component_utils(mmu_driver)
+    virtual mmu_if vif;
+    function new(string name, uvm_component parent); super.new(name,parent); endfunction
+    function void build_phase(uvm_phase phase);
+      if(!uvm_config_db#(virtual mmu_if)::get(this,"","vif",vif)) `uvm_fatal("NOVIF","MMU interface missing");
+    endfunction
+    task run_phase(uvm_phase phase);
+      mmu_item tr;
+      vif.cfg_we<=0; vif.access_valid<=0;
+      forever begin
+        seq_item_port.get_next_item(tr);
+        if(tr.cfg) begin
+          @(negedge vif.clk); vif.cfg_index<=tr.index; vif.cfg_ppn<=tr.ppn; vif.cfg_flags<=tr.flags; vif.cfg_we<=1;
+          @(negedge vif.clk); vif.cfg_we<=0;
+        end
+        @(negedge vif.clk);
+        vif.va<=tr.va; vif.access_valid<=tr.valid; vif.access_write<=tr.write; vif.access_exec<=tr.exec;
+        #1;
+        tr.pa=vif.pa; tr.fault=vif.page_fault; tr.perm=vif.permission_fault; tr.hit=vif.tlb_hit; tr.miss=vif.tlb_miss;
+        @(negedge vif.clk); vif.access_valid<=0;
+        seq_item_port.item_done();
+      end
+    endtask
+  endclass
+
+  class mmu_monitor extends uvm_monitor;
+    `uvm_component_utils(mmu_monitor)
+    virtual mmu_if vif; uvm_analysis_port #(mmu_item) ap;
+    function new(string name, uvm_component parent); super.new(name,parent); ap=new("ap",this); endfunction
+    function void build_phase(uvm_phase phase);
+      if(!uvm_config_db#(virtual mmu_if)::get(this,"","vif",vif)) `uvm_fatal("NOVIF","MMU interface missing");
+    endfunction
+    task run_phase(uvm_phase phase);
+      mmu_item tr;
+      forever begin
+        @(negedge vif.clk);
+        if(vif.cfg_we) begin
+          tr=mmu_item::type_id::create("cfg_mon",this); tr.cfg=1; tr.index=vif.cfg_index; tr.ppn=vif.cfg_ppn; tr.flags=vif.cfg_flags; ap.write(tr);
+        end
+        if(vif.access_valid) begin
+          #1; tr=mmu_item::type_id::create("mon_tr",this); tr.cfg=0; tr.va=vif.va; tr.valid=vif.access_valid;
+          tr.write=vif.access_write; tr.exec=vif.access_exec; tr.pa=vif.pa; tr.fault=vif.page_fault;
+          tr.perm=vif.permission_fault; tr.hit=vif.tlb_hit; tr.miss=vif.tlb_miss; ap.write(tr);
+        end
+      end
+    endtask
+  endclass
+
+  class mmu_scoreboard extends uvm_component;
+    `uvm_component_utils(mmu_scoreboard)
+    uvm_analysis_imp #(mmu_item,mmu_scoreboard) imp;
+    bit [19:0] ppn[16]; bit [4:0] flags[16]; integer errors;
+    function new(string name,uvm_component parent); super.new(name,parent); imp=new("imp",this); errors=0; foreach(ppn[i]) begin ppn[i]=0; flags[i]=0; end flags[0]=5'b01111; endfunction
+    function void write(mmu_item tr);
+      integer idx; bit ok;
+      if(tr.cfg) begin flags[tr.index]=tr.flags; ppn[tr.index]=tr.ppn; return; end
+      idx=tr.va[15:12]; ok=flags[idx][0] && (tr.exec ? flags[idx][3] : (tr.write ? flags[idx][2] : flags[idx][1]));
+      if(ok && !tr.fault && tr.pa !== {ppn[idx],tr.va[11:0]}) begin errors++; `uvm_error("MMU_SB","PA mismatch"); end
+      if(!ok && !tr.fault) begin errors++; `uvm_error("MMU_SB","Expected fault missing"); end
+      if(tr.miss && tr.hit) begin errors++; `uvm_error("MMU_SB","Hit and miss both asserted"); end
+    endfunction
+    function void report_phase(uvm_phase phase); if(errors==0) `uvm_info("MMU_SB","UVM MMU SCOREBOARD PASSED",UVM_NONE) else `uvm_error("MMU_SB",$sformatf("errors=%0d",errors)); endfunction
+  endclass
+
+  class mmu_cov extends uvm_subscriber #(mmu_item);
+    `uvm_component_utils(mmu_cov)
+    covergroup cg with function sample(bit wr,bit ex,bit hit,bit miss,bit fault,bit perm);
+      cp_wr: coverpoint wr; cp_ex: coverpoint ex; cp_hit: coverpoint hit; cp_miss: coverpoint miss;
+      cp_fault: coverpoint fault; cp_perm: coverpoint perm;
+      cross cp_wr,cp_ex,cp_hit,cp_miss,cp_fault,cp_perm;
+    endgroup
+    function new(string name,uvm_component parent); super.new(name,parent); cg=new(); endfunction
+    function void write(mmu_item t); if(!t.cfg) cg.sample(t.write,t.exec,t.hit,t.miss,t.fault,t.perm); endfunction
+    function void report_phase(uvm_phase phase); `uvm_info("MMU_COV",$sformatf("coverage=%0.2f%%",cg.get_inst_coverage()),UVM_NONE); endfunction
+  endclass
+
+  class mmu_agent extends uvm_agent;
+    `uvm_component_utils(mmu_agent)
+    uvm_sequencer#(mmu_item) seqr; mmu_driver drv; mmu_monitor mon;
+    function new(string n,uvm_component p); super.new(n,p); endfunction
+    function void build_phase(uvm_phase phase); seqr=uvm_sequencer#(mmu_item)::type_id::create("seqr",this); drv=mmu_driver::type_id::create("drv",this); mon=mmu_monitor::type_id::create("mon",this); endfunction
+    function void connect_phase(uvm_phase phase); drv.seq_item_port.connect(seqr.seq_item_export); endfunction
+  endclass
+
+  class mmu_env extends uvm_env;
+    `uvm_component_utils(mmu_env)
+    mmu_agent agent; mmu_scoreboard sb; mmu_cov cov;
+    function new(string n,uvm_component p); super.new(n,p); endfunction
+    function void build_phase(uvm_phase phase); agent=mmu_agent::type_id::create("agent",this); sb=mmu_scoreboard::type_id::create("sb",this); cov=mmu_cov::type_id::create("cov",this); endfunction
+    function void connect_phase(uvm_phase phase); agent.mon.ap.connect(sb.imp); agent.mon.ap.connect(cov.analysis_export); endfunction
+  endclass
+
+  class mmu_directed_seq extends uvm_sequence#(mmu_item);
+    `uvm_object_utils(mmu_directed_seq)
+    function new(string n="mmu_directed_seq"); super.new(n); endfunction
+    task do_cfg(input [3:0] idx,input [19:0] p,input [4:0] f);
+      mmu_item t=mmu_item::type_id::create("cfg"); start_item(t); t.cfg=1;t.index=idx;t.ppn=p;t.flags=f;t.valid=0;t.va=0;finish_item(t);
+    endtask
+    task do_access(input [31:0] va,input bit wr,input bit ex);
+      mmu_item t=mmu_item::type_id::create("acc"); start_item(t); t.cfg=0;t.valid=1;t.va=va;t.write=wr;t.exec=ex;finish_item(t);
+    endtask
+    task body();
+      do_cfg(4'h1,20'h2,5'b01111);
+      do_access(32'h00001034,0,1); // miss + PT translation
+      do_access(32'h00001034,0,1); // TLB hit
+      do_cfg(4'h2,20'h3,5'b00011);
+      do_access(32'h00002008,1,0); // write permission fault
+      do_cfg(4'h3,20'h4,5'b00000);
+      do_access(32'h00003000,0,0); // invalid page fault
+    endtask
+  endclass
+
+  class mmu_uvm_test extends uvm_test;
+    `uvm_component_utils(mmu_uvm_test)
+    mmu_env env;
+    function new(string n,uvm_component p); super.new(n,p); endfunction
+    function void build_phase(uvm_phase phase); env=mmu_env::type_id::create("env",this); endfunction
+    task run_phase(uvm_phase phase); mmu_directed_seq s=mmu_directed_seq::type_id::create("s"); phase.raise_objection(this); s.start(env.agent.seqr); #50; phase.drop_objection(this); endtask
+  endclass
+endpackage

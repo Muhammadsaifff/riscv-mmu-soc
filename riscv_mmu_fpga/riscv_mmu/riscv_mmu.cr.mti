@@ -1,0 +1,233 @@
+/home/saif/riscv_mmu/vm_status_if.sv {1 {vlog -work work -vopt -sv -stats=none /home/saif/riscv_mmu/vm_status_if.sv
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling interface vm_status_if
+
+Top level modules:
+	--none--
+
+} {} {}} /home/saif/riscv_mmu/mmu.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/mmu.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module mmu
+
+Top level modules:
+	mmu
+
+} {} {}} /home/saif/riscv_mmu/mmu_if.sv {1 {vlog -work work -vopt -sv -stats=none /home/saif/riscv_mmu/mmu_if.sv
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling interface mmu_if
+
+Top level modules:
+	--none--
+
+} {} {}} /home/saif/riscv_mmu/extend.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/extend.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module extend
+
+Top level modules:
+	extend
+
+} {} {}} /home/saif/riscv_mmu/adder.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/adder.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module adder
+
+Top level modules:
+	adder
+
+} {} {}} /home/saif/riscv_mmu/vm_apb_pkg.sv {1 {vlog -work work -vopt -sv -stats=none /home/saif/riscv_mmu/vm_apb_pkg.sv
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling package vm_apb_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+** Note: (vlog-2286) /home/saif/riscv_mmu/vm_apb_pkg.sv(3): Using implicit +incdir+/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+
+Top level modules:
+	--none--
+
+} {} {}} /home/saif/riscv_mmu/apb_mmu_control.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/apb_mmu_control.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module apb_mmu_control
+
+Top level modules:
+	apb_mmu_control
+
+} {} {}} /home/saif/riscv_mmu/fault_handler.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/fault_handler.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module fault_handler
+
+Top level modules:
+	fault_handler
+
+} {} {}} /home/saif/riscv_mmu/soc_smoke_tb.sv {1 {vlog -work work -vopt -sv -stats=none /home/saif/riscv_mmu/soc_smoke_tb.sv
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module soc_smoke_tb
+
+Top level modules:
+	soc_smoke_tb
+
+} {} {}} /home/saif/riscv_mmu/mmu_uvm_top.sv {1 {vlog -work work -vopt -sv -stats=none /home/saif/riscv_mmu/mmu_uvm_top.sv
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module mmu_uvm_top
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package mmu_uvm_pkg
+
+Top level modules:
+	mmu_uvm_top
+
+} {} {}} /home/saif/riscv_mmu/Top.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/Top.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module Top
+
+Top level modules:
+	Top
+
+} {} {}} /home/saif/riscv_mmu/mux2.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/mux2.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module mux2
+
+Top level modules:
+	mux2
+
+} {} {}} /home/saif/riscv_mmu/uvm_top.sv {1 {vlog -work work -vopt -sv -stats=none /home/saif/riscv_mmu/uvm_top.sv
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module uvm_top
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package vm_apb_pkg
+
+Top level modules:
+	uvm_top
+
+} {} {}} /home/saif/riscv_mmu/apb_directed_tb.sv {1 {vlog -work work -vopt -sv -stats=none /home/saif/riscv_mmu/apb_directed_tb.sv
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module apb_directed_tb
+
+Top level modules:
+	apb_directed_tb
+
+} {} {}} /home/saif/riscv_mmu/Single_Cycle_RV32I.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/Single_Cycle_RV32I.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module Single_Cycle_RV32I
+
+Top level modules:
+	Single_Cycle_RV32I
+
+} {} {}} /home/saif/riscv_mmu/mux4.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/mux4.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module mux4
+
+Top level modules:
+	mux4
+
+} {} {}} /home/saif/riscv_mmu/vm_sva.sv {1 {vlog -work work -vopt -sv -stats=none /home/saif/riscv_mmu/vm_sva.sv
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module vm_sva
+
+Top level modules:
+	vm_sva
+
+} {} {}} /home/saif/riscv_mmu/datapath.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/datapath.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module datapath
+
+Top level modules:
+	datapath
+
+} {} {}} /home/saif/riscv_mmu/uart_tx.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/uart_tx.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module uart_tx
+
+Top level modules:
+	uart_tx
+
+} {} {}} /home/saif/riscv_mmu/alu32.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/alu32.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module alu32
+
+Top level modules:
+	alu32
+
+} {} {}} /home/saif/riscv_mmu/vm_mmu_unit_tb.sv {1 {vlog -work work -vopt -sv -stats=none /home/saif/riscv_mmu/vm_mmu_unit_tb.sv
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module vm_mmu_unit_tb
+
+Top level modules:
+	vm_mmu_unit_tb
+
+} {} {}} /home/saif/riscv_mmu/imem.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/imem.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module imem
+
+Top level modules:
+	imem
+
+} {} {}} /home/saif/riscv_mmu/soc_vm_integration_tb.sv {1 {vlog -work work -vopt -sv -stats=none /home/saif/riscv_mmu/soc_vm_integration_tb.sv
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module vm_mmu_unit_tb
+
+Top level modules:
+	vm_mmu_unit_tb
+
+} {} {}} /home/saif/riscv_mmu/mmu_uvm_pkg.sv {1 {vlog -work work -vopt -sv -stats=none /home/saif/riscv_mmu/mmu_uvm_pkg.sv
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling package mmu_uvm_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+** Note: (vlog-2286) /home/saif/riscv_mmu/mmu_uvm_pkg.sv(3): Using implicit +incdir+/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+
+Top level modules:
+	--none--
+
+} {} {}} /home/saif/riscv_mmu/tlb.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/tlb.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module tlb
+
+Top level modules:
+	tlb
+
+} {} {}} /home/saif/riscv_mmu/flopr.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/flopr.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module flopr
+
+Top level modules:
+	flopr
+
+} {} {}} /home/saif/riscv_mmu/dmem.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/dmem.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module dmem
+
+Top level modules:
+	dmem
+
+} {} {}} /home/saif/riscv_mmu/apb_if.sv {1 {vlog -work work -vopt -sv -stats=none /home/saif/riscv_mmu/apb_if.sv
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling interface apb_if
+
+Top level modules:
+	--none--
+
+} {} {}} /home/saif/riscv_mmu/page_table.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/page_table.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module page_table
+
+Top level modules:
+	page_table
+
+} {} {}} /home/saif/riscv_mmu/gpio_debug.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/gpio_debug.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module gpio_debug
+
+Top level modules:
+	gpio_debug
+
+} {} {}} /home/saif/riscv_mmu/regfile.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/regfile.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module regfile
+
+Top level modules:
+	regfile
+
+} {} {}} /home/saif/riscv_mmu/control_logic.v {1 {vlog -work work -vopt -stats=none /home/saif/riscv_mmu/control_logic.v
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+-- Compiling module control_logic
+
+Top level modules:
+	control_logic
+
+} {} {}}

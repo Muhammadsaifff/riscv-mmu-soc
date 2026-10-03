@@ -1,0 +1,302 @@
+--- dmem.v.orig
++++ dmem.v
+@@ -1,3 +1,20 @@
++// Byte-addressable 32-bit data memory.
++//
++// The external interface and access semantics are unchanged:
++//   mode 000 = LW/SW
++//   mode 001 = LHU/SH
++//   mode 101 = LH
++//   mode 010 = LBU/SB
++//   mode 110 = LB
++//
++// Implementation note:
++// The old implementation stored 8192 separately indexed bytes.  This version
++// stores 2048 32-bit words.  That gives synthesis a much smaller address
++// decode/write structure while preserving byte-addressed and unaligned access.
++//
++// Reset/clear timing is intentionally preserved: clear_addr advances by 4
++// bytes each clock and clear_active remains asserted for MEM_BYTES/4 clocks.
++// The CPU is held in reset by Top.v while this operation is in progress.
+ module dmem #(parameter MEM_BYTES=8192)(
+     input wire [31:0] a,
+     output reg [31:0] rd,
+@@ -9,60 +26,126 @@
+     output wire clear_active
+ );
+ 
+-    reg [7:0] mem [0:MEM_BYTES-1];
+-    reg clearing;
++    localparam WORD_BYTES = 4;
++    localparam WORDS      = MEM_BYTES / WORD_BYTES;
++    localparam ADDR_BITS  = (WORDS <= 1) ? 1 : $clog2(WORDS);
++
++    // One 32-bit word per 4 byte addresses.
++    // Keep this as a memory object so Yosys can optimize/map it as a memory
++    // before technology mapping instead of expanding 8192 byte entries early.
++    (* ram_style = "block" *)
++    reg [31:0] mem [0:WORDS-1];
++
++    reg        clearing;
+     reg [31:0] clear_addr;
+ 
+     wire addr_ok = (a < MEM_BYTES);
++    wire [ADDR_BITS-1:0] word_index = a[ADDR_BITS+1:2];
++    wire [ADDR_BITS-1:0] next_word_index = word_index + 1'b1;
++    wire next_word_ok = (word_index < WORDS-1);
++
++    wire [1:0] byte_offset = a[1:0];
+ 
+     assign clear_active = clearing;
+ 
++    // ------------------------------------------------------------------
++    // Sequential writes and reset clearing
++    // ------------------------------------------------------------------
+     always @(posedge clk or posedge reset) begin
+         if (reset) begin
+             clearing   <= 1'b1;
+             clear_addr <= 32'd0;
+         end
+         else if (clearing) begin
+-
+-            mem[clear_addr] <= 8'h00;
+-
+-            if (clear_addr + 1 < MEM_BYTES)
+-                mem[clear_addr + 1] <= 8'h00;
+-
+-            if (clear_addr + 2 < MEM_BYTES)
+-                mem[clear_addr + 2] <= 8'h00;
+-
+-            if (clear_addr + 3 < MEM_BYTES)
+-                mem[clear_addr + 3] <= 8'h00;
+-
+-            if (clear_addr + 4 >= MEM_BYTES) begin
++            // clear_addr is always word aligned, so one whole 32-bit word
++            // clears four bytes per clock, exactly matching the old
++            // clear_active duration and address progression.
++            mem[clear_addr[ADDR_BITS+1:2]] <= 32'h00000000;
++
++            if (clear_addr + WORD_BYTES >= MEM_BYTES) begin
+                 clear_addr <= 32'd0;
+                 clearing   <= 1'b0;
+             end
+             else begin
+-                clear_addr <= clear_addr + 4;
++                clear_addr <= clear_addr + WORD_BYTES;
+             end
+         end
+         else if (we && addr_ok) begin
+             case (mode)
+ 
++                // ------------------------------------------------------
++                // Store byte
++                // ------------------------------------------------------
+                 3'b010, 3'b110: begin
+-                    mem[a] <= wd[7:0];
+-                end
+-
++                    case (byte_offset)
++                        2'd0: mem[word_index][7:0]   <= wd[7:0];
++                        2'd1: mem[word_index][15:8]  <= wd[7:0];
++                        2'd2: mem[word_index][23:16] <= wd[7:0];
++                        default: mem[word_index][31:24] <= wd[7:0];
++                    endcase
++                end
++
++                // ------------------------------------------------------
++                // Store halfword.
++                // Preserve the old all-or-nothing bounds behavior:
++                // if a+1 is outside memory, nothing is written.
++                // ------------------------------------------------------
+                 3'b001, 3'b101: begin
+                     if (a + 1 < MEM_BYTES) begin
+-                        mem[a]   <= wd[7:0];
+-                        mem[a+1] <= wd[15:8];
++                        case (byte_offset)
++                            2'd0: begin
++                                mem[word_index][15:0] <= wd[15:0];
++                            end
++
++                            2'd1: begin
++                                mem[word_index][15:8] <= wd[7:0];
++                                if (next_word_ok)
++                                    mem[next_word_index][7:0] <= wd[15:8];
++                            end
++
++                            2'd2: begin
++                                mem[word_index][31:16] <= wd[15:0];
++                            end
++
++                            default: begin
++                                mem[word_index][31:24] <= wd[7:0];
++                                if (next_word_ok)
++                                    mem[next_word_index][7:0] <= wd[15:8];
++                            end
++                        endcase
+                     end
+                 end
+ 
++                // ------------------------------------------------------
++                // Store word.
++                // Preserve the old all-or-nothing bounds behavior:
++                // if any of a..a+3 is outside memory, nothing is written.
++                // ------------------------------------------------------
+                 default: begin
+                     if (a + 3 < MEM_BYTES) begin
+-                        mem[a]   <= wd[7:0];
+-                        mem[a+1] <= wd[15:8];
+-                        mem[a+2] <= wd[23:16];
+-                        mem[a+3] <= wd[31:24];
++                        case (byte_offset)
++                            2'd0: begin
++                                mem[word_index] <= wd;
++                            end
++
++                            2'd1: begin
++                                mem[word_index][31:8] <= wd[23:0];
++                                if (next_word_ok)
++                                    mem[next_word_index][7:0] <= wd[31:24];
++                            end
++
++                            2'd2: begin
++                                mem[word_index][31:16] <= wd[15:0];
++                                if (next_word_ok)
++                                    mem[next_word_index][15:0] <= wd[31:16];
++                            end
++
++                            default: begin
++                                mem[word_index][31:24] <= wd[7:0];
++                                if (next_word_ok)
++                                    mem[next_word_index][23:0] <= wd[31:8];
++                            end
++                        endcase
+                     end
+                 end
+ 
+@@ -70,37 +153,103 @@
+         end
+     end
+ 
++    // ------------------------------------------------------------------
++    // Combinational read path
++    // ------------------------------------------------------------------
++    //
++    // The CPU sees exactly the same little-endian byte-addressed behavior
++    // as before, including unaligned accesses.
++    // ------------------------------------------------------------------
++    reg [31:0] cur_word;
++    reg [31:0] nxt_word;
++
+     always @(*) begin
+-        rd = 32'h0;
++        rd       = 32'h00000000;
++        cur_word = 32'h00000000;
++        nxt_word = 32'h00000000;
+ 
+         if (!clearing && addr_ok) begin
++            cur_word = mem[word_index];
++
++            if (next_word_ok)
++                nxt_word = mem[next_word_index];
++
+             case (mode)
+ 
+-                3'b010:
+-                    rd = {24'h0, mem[a]};
+-
+-                3'b110:
+-                    rd = {{24{mem[a][7]}}, mem[a]};
+-
+-                3'b001:
+-                    if (a + 1 < MEM_BYTES)
+-                        rd = {16'h0, mem[a+1], mem[a]};
+-
+-                3'b101:
+-                    if (a + 1 < MEM_BYTES)
+-                        rd = {{16{mem[a+1][7]}}, mem[a+1], mem[a]};
+-
+-                default:
+-                    if (a + 3 < MEM_BYTES)
+-                        rd = {
+-                            mem[a+3],
+-                            mem[a+2],
+-                            mem[a+1],
+-                            mem[a]
+-                        };
++                // LBU
++                3'b010: begin
++                    case (byte_offset)
++                        2'd0: rd = {24'h0, cur_word[7:0]};
++                        2'd1: rd = {24'h0, cur_word[15:8]};
++                        2'd2: rd = {24'h0, cur_word[23:16]};
++                        default: rd = {24'h0, cur_word[31:24]};
++                    endcase
++                end
++
++                // LB
++                3'b110: begin
++                    case (byte_offset)
++                        2'd0: rd = {{24{cur_word[7]}}, cur_word[7:0]};
++                        2'd1: rd = {{24{cur_word[15]}}, cur_word[15:8]};
++                        2'd2: rd = {{24{cur_word[23]}}, cur_word[23:16]};
++                        default: rd = {{24{cur_word[31]}}, cur_word[31:24]};
++                    endcase
++                end
++
++                // LHU
++                3'b001: begin
++                    if (a + 1 < MEM_BYTES) begin
++                        case (byte_offset)
++                            2'd0: rd = {16'h0, cur_word[15:0]};
++                            2'd1: rd = {16'h0, cur_word[23:8]};
++                            2'd2: rd = {16'h0, cur_word[31:16]};
++                            default: rd = {16'h0, nxt_word[7:0], cur_word[31:24]};
++                        endcase
++                        end
++                end
++
++                // LH
++                3'b101: begin
++                    if (a + 1 < MEM_BYTES) begin
++                        case (byte_offset)
++                            2'd0: rd = {{16{cur_word[15]}}, cur_word[15:0]};
++                            2'd1: rd = {{16{cur_word[23]}}, cur_word[23:8]};
++                            2'd2: rd = {{16{cur_word[31]}}, cur_word[31:16]};
++                            default: begin
++                                rd = {{16{nxt_word[7]}},
++                                      nxt_word[7:0], cur_word[31:24]};
++                            end
++                        endcase
++                        end
++                end
++
++                // LW
++                default: begin
++                    if (a + 3 < MEM_BYTES) begin
++                        case (byte_offset)
++                            2'd0: rd = cur_word;
++
++                            2'd1: rd = {
++                                nxt_word[7:0],
++                                cur_word[31:8]
++                            };
++
++                            2'd2: rd = {
++                                nxt_word[15:0],
++                                cur_word[31:16]
++                            };
++
++                            default: rd = {
++                                nxt_word[23:0],
++                                cur_word[31:24]
++                            };
++                        endcase
++                        end
++                end
+ 
+             endcase
+         end
++
+     end
+ 
+ endmodule

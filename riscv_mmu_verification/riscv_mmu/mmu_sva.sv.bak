@@ -1,0 +1,21 @@
+module mmu_sva(mmu_if vif);
+  default clocking cb @(negedge vif.clk); endclocking
+
+  a_hit_miss_exclusive:
+    assert property(vif.access_valid |-> !(vif.tlb_hit && vif.tlb_miss))
+    else $error("MMU: TLB hit and miss both asserted");
+
+  a_fault_safe_pa:
+    assert property(vif.access_valid && vif.page_fault |-> vif.pa == 32'h0)
+    else $error("MMU: fault did not force PA=0");
+
+  a_disabled_bypass:
+    assert property(vif.access_valid && !vif.enable |->
+                    (!vif.page_fault && !vif.permission_fault && vif.pa == vif.va))
+    else $error("MMU: disabled mode bypass failed");
+
+  a_offset_preserved:
+    assert property(vif.access_valid && vif.enable && !vif.page_fault |->
+                    vif.pa[11:0] == vif.va[11:0])
+    else $error("MMU: page offset was not preserved");
+endmodule

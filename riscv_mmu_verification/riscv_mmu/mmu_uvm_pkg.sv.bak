@@ -1,0 +1,606 @@
+package mmu_uvm_pkg;
+  import uvm_pkg::*;
+  `include "uvm_macros.svh"
+
+  typedef enum bit [1:0] {ACC_READ=2'd0, ACC_WRITE=2'd1, ACC_EXEC=2'd2} mmu_acc_e;
+
+  class mmu_item extends uvm_sequence_item;
+    rand bit cfg;
+    rand bit flush;
+    rand bit enable;
+    rand bit [3:0] index;
+    rand bit [19:0] ppn;
+    rand bit [4:0] flags;
+
+    rand bit access_valid;
+    rand bit write;
+    rand bit exec;
+    rand bit [31:0] va;
+
+    bit [31:0] pa;
+    bit page_fault;
+    bit permission_fault;
+    bit tlb_hit;
+    bit tlb_miss;
+
+    constraint c_cfg {
+      if (cfg) {
+        access_valid == 0;
+        flush dist {1 := 2, 0 := 8};
+      } else {
+        access_valid == 1;
+        flush == 0;
+      }
+    }
+
+    constraint c_access {
+      if (access_valid) {
+        write dist {0 := 3, 1 := 2};
+        exec  dist {0 := 4, 1 := 1};
+      }
+    }
+
+    `uvm_object_utils_begin(mmu_item)
+      `uvm_field_int(cfg,UVM_ALL_ON)
+      `uvm_field_int(flush,UVM_ALL_ON)
+      `uvm_field_int(enable,UVM_ALL_ON)
+      `uvm_field_int(index,UVM_ALL_ON)
+      `uvm_field_int(ppn,UVM_ALL_ON)
+      `uvm_field_int(flags,UVM_ALL_ON)
+      `uvm_field_int(access_valid,UVM_ALL_ON)
+      `uvm_field_int(write,UVM_ALL_ON)
+      `uvm_field_int(exec,UVM_ALL_ON)
+      `uvm_field_int(va,UVM_ALL_ON)
+      `uvm_field_int(pa,UVM_ALL_ON)
+      `uvm_field_int(page_fault,UVM_ALL_ON)
+      `uvm_field_int(permission_fault,UVM_ALL_ON)
+      `uvm_field_int(tlb_hit,UVM_ALL_ON)
+      `uvm_field_int(tlb_miss,UVM_ALL_ON)
+    `uvm_object_utils_end
+
+    function new(string name="mmu_item");
+      super.new(name);
+    endfunction
+  endclass
+
+  class mmu_sequencer extends uvm_sequencer #(mmu_item);
+    `uvm_component_utils(mmu_sequencer)
+    function new(string name, uvm_component parent);
+      super.new(name,parent);
+    endfunction
+  endclass
+
+  class mmu_driver extends uvm_driver #(mmu_item);
+    `uvm_component_utils(mmu_driver)
+    virtual mmu_if vif;
+
+    function new(string name, uvm_component parent);
+      super.new(name,parent);
+    endfunction
+
+    function void build_phase(uvm_phase phase);
+      super.build_phase(phase);
+      if (!uvm_config_db#(virtual mmu_if)::get(this,"","vif",vif))
+        `uvm_fatal("NOVIF","virtual mmu_if not configured")
+    endfunction
+
+    task drive_defaults();
+      vif.drv_cb.enable         <= 1'b1;
+      vif.drv_cb.cfg_we         <= 1'b0;
+      vif.drv_cb.cfg_index      <= '0;
+      vif.drv_cb.cfg_ppn        <= '0;
+      vif.drv_cb.cfg_flags      <= '0;
+      vif.drv_cb.tlb_flush      <= 1'b0;
+      vif.drv_cb.access_valid   <= 1'b0;
+      vif.drv_cb.access_write   <= 1'b0;
+      vif.drv_cb.access_exec    <= 1'b0;
+      vif.drv_cb.va             <= '0;
+    endtask
+
+    task run_phase(uvm_phase phase);
+      mmu_item tr;
+      drive_defaults();
+
+      forever begin
+        seq_item_port.get_next_item(tr);
+
+        if (tr.cfg) begin
+          @(vif.drv_cb);
+          vif.drv_cb.enable    <= tr.enable;
+          vif.drv_cb.cfg_index <= tr.index;
+          vif.drv_cb.cfg_ppn   <= tr.ppn;
+          vif.drv_cb.cfg_flags <= tr.flags;
+          vif.drv_cb.cfg_we    <= 1'b1;
+          vif.drv_cb.tlb_flush <= tr.flush;
+
+          @(vif.drv_cb);
+          vif.drv_cb.cfg_we    <= 1'b0;
+          vif.drv_cb.tlb_flush <= 1'b0;
+        end
+        else begin
+          @(vif.drv_cb);
+          vif.drv_cb.enable       <= tr.enable;
+          vif.drv_cb.va           <= tr.va;
+          vif.drv_cb.access_valid <= tr.access_valid;
+          vif.drv_cb.access_write <= tr.write;
+          vif.drv_cb.access_exec  <= tr.exec;
+
+          // Outputs are combinational. Sample through the clocking block after
+          // the DUT has observed the driven values.
+          #1;
+          tr.pa               = vif.drv_cb.pa;
+          tr.page_fault       = vif.drv_cb.page_fault;
+          tr.permission_fault = vif.drv_cb.permission_fault;
+          tr.tlb_hit          = vif.drv_cb.tlb_hit;
+          tr.tlb_miss         = vif.drv_cb.tlb_miss;
+
+          @(vif.drv_cb);
+          vif.drv_cb.access_valid <= 1'b0;
+        end
+
+        seq_item_port.item_done();
+      end
+    endtask
+  endclass
+
+  class mmu_monitor extends uvm_monitor;
+    `uvm_component_utils(mmu_monitor)
+    virtual mmu_if vif;
+    uvm_analysis_port #(mmu_item) ap;
+
+    function new(string name, uvm_component parent);
+      super.new(name,parent);
+      ap = new("ap",this);
+    endfunction
+
+    function void build_phase(uvm_phase phase);
+      super.build_phase(phase);
+      if (!uvm_config_db#(virtual mmu_if)::get(this,"","vif",vif))
+        `uvm_fatal("NOVIF","virtual mmu_if not configured")
+    endfunction
+
+    task run_phase(uvm_phase phase);
+      mmu_item tr;
+      forever begin
+        @(vif.mon_cb);
+        if (vif.mon_cb.reset)
+          continue;
+
+        if (vif.mon_cb.cfg_we) begin
+          tr = mmu_item::type_id::create("cfg_mon",this);
+          tr.cfg    = 1'b1;
+          tr.flush  = vif.mon_cb.tlb_flush;
+          tr.enable = vif.mon_cb.enable;
+          tr.index  = vif.mon_cb.cfg_index;
+          tr.ppn    = vif.mon_cb.cfg_ppn;
+          tr.flags  = vif.mon_cb.cfg_flags;
+          ap.write(tr);
+        end
+
+        if (vif.mon_cb.access_valid) begin
+          tr = mmu_item::type_id::create("acc_mon",this);
+          tr.cfg               = 1'b0;
+          tr.enable            = vif.mon_cb.enable;
+          tr.access_valid      = 1'b1;
+          tr.write             = vif.mon_cb.access_write;
+          tr.exec              = vif.mon_cb.access_exec;
+          tr.va                = vif.mon_cb.va;
+          tr.pa                = vif.mon_cb.pa;
+          tr.page_fault        = vif.mon_cb.page_fault;
+          tr.permission_fault  = vif.mon_cb.permission_fault;
+          tr.tlb_hit           = vif.mon_cb.tlb_hit;
+          tr.tlb_miss          = vif.mon_cb.tlb_miss;
+          ap.write(tr);
+        end
+      end
+    endtask
+  endclass
+
+  class mmu_scoreboard extends uvm_component;
+    `uvm_component_utils(mmu_scoreboard)
+    uvm_analysis_imp #(mmu_item,mmu_scoreboard) imp;
+
+    bit [19:0] pte_ppn [16];
+    bit [4:0]  pte_flags [16];
+
+    bit tlb_valid [4];
+    bit [19:0] tlb_vpn [4];
+    bit [19:0] tlb_ppn [4];
+    bit [4:0]  tlb_flags [4];
+
+    bit model_enable;
+    int unsigned checks;
+    int unsigned errors;
+
+    function new(string name, uvm_component parent);
+      super.new(name,parent);
+      imp = new("imp",this);
+      reset_model();
+    endfunction
+
+    function void reset_model();
+      int i;
+      model_enable = 1'b1;
+      checks = 0;
+      errors = 0;
+      for (i=0;i<16;i++) begin
+        pte_ppn[i] = '0;
+        pte_flags[i] = '0;
+      end
+      // DUT page_table reset value.
+      pte_flags[0] = 5'b01111;
+
+      for (i=0;i<4;i++) begin
+        tlb_valid[i] = 1'b0;
+        tlb_vpn[i] = '0;
+        tlb_ppn[i] = '0;
+        tlb_flags[i] = '0;
+      end
+    endfunction
+
+    function bit allowed(bit [4:0] f, bit wr, bit ex);
+      if (!f[0]) return 0;
+      if (ex)     return f[3];
+      if (wr)     return f[2];
+      return f[1];
+    endfunction
+
+    function void fail(string msg, mmu_item tr);
+      errors++;
+      `uvm_error("MMU_SB",
+        $sformatf("%s | VA=%08h PA=%08h hit=%0b miss=%0b fault=%0b perm=%0b",
+                  msg,tr.va,tr.pa,tr.tlb_hit,tr.tlb_miss,tr.page_fault,tr.permission_fault))
+    endfunction
+
+    function void write(mmu_item tr);
+      int idx;
+      bit hit_model;
+      bit [19:0] ppn_model;
+      bit [4:0] flags_model;
+      bit access_ok;
+
+      if (tr.cfg) begin
+        model_enable = tr.enable;
+        if (tr.flush) begin
+          for (idx=0;idx<4;idx++) tlb_valid[idx]=1'b0;
+        end
+        pte_ppn[tr.index] = tr.ppn;
+        pte_flags[tr.index] = tr.flags;
+        return;
+      end
+
+      checks++;
+      idx = tr.va[15:12];
+
+      // The RTL TLB is direct mapped by VPN[1:0], with full VPN tag compare.
+      hit_model = tlb_valid[tr.va[1:0]] &&
+                  (tlb_vpn[tr.va[1:0]] == tr.va[31:12]);
+
+      if (hit_model) begin
+        ppn_model = tlb_ppn[tr.va[1:0]];
+        flags_model = tlb_flags[tr.va[1:0]];
+      end
+      else begin
+        ppn_model = pte_ppn[idx];
+        flags_model = pte_flags[idx];
+      end
+
+      access_ok = allowed(flags_model,tr.write,tr.exec);
+
+      if (tr.enable !== model_enable)
+        fail("MMU enable mismatch",tr);
+
+      if (tr.tlb_hit !== hit_model)
+        fail("TLB hit mismatch",tr);
+
+      if (tr.tlb_miss !== (!hit_model))
+        fail("TLB miss mismatch",tr);
+
+      if (tr.tlb_hit && tr.tlb_miss)
+        fail("TLB hit and miss both asserted",tr);
+
+      if (!tr.enable) begin
+        if (tr.page_fault || tr.permission_fault)
+          fail("MMU-disabled access unexpectedly faulted",tr);
+        if (tr.pa !== tr.va)
+          fail("MMU-disabled access did not bypass",tr);
+        return;
+      end
+
+      if (!access_ok) begin
+        if (!tr.page_fault)
+          fail("Expected page/permission fault missing",tr);
+        if (tr.pa !== 32'h0)
+          fail("Faulting access did not force PA=0",tr);
+        if (!tr.permission_fault && flags_model[0])
+          fail("Permission fault expected for valid but disallowed PTE",tr);
+      end
+      else begin
+        if (tr.page_fault || tr.permission_fault)
+          fail("Valid permitted access faulted",tr);
+        if (tr.pa !== {ppn_model,tr.va[11:0]})
+          fail("Translated PA mismatch",tr);
+      end
+
+      if (tr.tlb_hit && (tr.pa[11:0] !== tr.va[11:0]) && !tr.page_fault)
+        fail("TLB-hit offset was not preserved",tr);
+
+      // Successful TLB miss refills the RTL TLB on the following clock.
+      if (tr.enable && !hit_model && access_ok) begin
+        tlb_valid[tr.va[1:0]] = 1'b1;
+        tlb_vpn[tr.va[1:0]] = tr.va[31:12];
+        tlb_ppn[tr.va[1:0]] = ppn_model;
+        tlb_flags[tr.va[1:0]] = flags_model;
+      end
+    endfunction
+
+    function void report_phase(uvm_phase phase);
+      super.report_phase(phase);
+      if (errors == 0)
+        `uvm_info("MMU_SB",$sformatf("PASS: %0d MMU transactions checked",checks),UVM_NONE)
+      else
+        `uvm_error("MMU_SB",$sformatf("FAIL: %0d errors in %0d checks",errors,checks))
+    endfunction
+  endclass
+
+  class mmu_coverage extends uvm_subscriber #(mmu_item);
+    `uvm_component_utils(mmu_coverage)
+
+    covergroup cg with function sample(mmu_item t);
+      option.per_instance = 1;
+
+      cp_enable: coverpoint t.enable {
+        bins disabled = {0};
+        bins enabled  = {1};
+      }
+      cp_write: coverpoint t.write;
+      cp_exec: coverpoint t.exec;
+      cp_valid: coverpoint t.access_valid;
+
+      cp_hit: coverpoint t.tlb_hit;
+      cp_miss: coverpoint t.tlb_miss;
+      cp_fault: coverpoint t.page_fault;
+      cp_perm: coverpoint t.permission_fault;
+
+      cp_vpn_low: coverpoint t.va[1:0] {
+        bins e0 = {0}; bins e1 = {1}; bins e2 = {2}; bins e3 = {3};
+      }
+
+      cp_offset: coverpoint t.va[11:0] {
+        bins zero = {12'h000};
+        bins low  = {[12'h001:12'h00f]};
+        bins page_end = {12'hfff};
+        bins other = default;
+      }
+
+      cp_vpn: coverpoint t.va[15:12] {
+        bins p0 = {0}; bins p1 = {1}; bins p2 = {2}; bins p3 = {3};
+        bins p4_15 = {[4:15]};
+      }
+
+      cross cp_enable, cp_write, cp_exec;
+      cross cp_hit, cp_miss;
+      cross cp_fault, cp_perm;
+      cross cp_vpn_low, cp_hit;
+    endgroup
+
+    function new(string name, uvm_component parent);
+      super.new(name,parent);
+      cg = new();
+    endfunction
+
+    function void write(mmu_item t);
+      if (!t.cfg)
+        cg.sample(t);
+    endfunction
+
+    function void report_phase(uvm_phase phase);
+      `uvm_info("MMU_COV",
+        $sformatf("MMU functional coverage = %0.2f%%",cg.get_inst_coverage()),UVM_NONE)
+    endfunction
+  endclass
+
+  class mmu_agent extends uvm_agent;
+    `uvm_component_utils(mmu_agent)
+    mmu_sequencer seqr;
+    mmu_driver drv;
+    mmu_monitor mon;
+
+    function new(string name, uvm_component parent);
+      super.new(name,parent);
+    endfunction
+
+    function void build_phase(uvm_phase phase);
+      super.build_phase(phase);
+      seqr = mmu_sequencer::type_id::create("seqr",this);
+      drv  = mmu_driver::type_id::create("drv",this);
+      mon  = mmu_monitor::type_id::create("mon",this);
+    endfunction
+
+    function void connect_phase(uvm_phase phase);
+      super.connect_phase(phase);
+      drv.seq_item_port.connect(seqr.seq_item_export);
+    endfunction
+  endclass
+
+  class mmu_env extends uvm_env;
+    `uvm_component_utils(mmu_env)
+    mmu_agent agent;
+    mmu_scoreboard sb;
+    mmu_coverage cov;
+
+    function new(string name, uvm_component parent);
+      super.new(name,parent);
+    endfunction
+
+    function void build_phase(uvm_phase phase);
+      super.build_phase(phase);
+      agent = mmu_agent::type_id::create("agent",this);
+      sb    = mmu_scoreboard::type_id::create("sb",this);
+      cov   = mmu_coverage::type_id::create("cov",this);
+    endfunction
+
+    function void connect_phase(uvm_phase phase);
+      super.connect_phase(phase);
+      agent.mon.ap.connect(sb.imp);
+      agent.mon.ap.connect(cov.analysis_export);
+    endfunction
+  endclass
+
+  class mmu_cfg_seq extends uvm_sequence #(mmu_item);
+    `uvm_object_utils(mmu_cfg_seq)
+    function new(string name="mmu_cfg_seq"); super.new(name); endfunction
+
+    task cfg(input bit en, input bit [3:0] idx, input bit [19:0] ppn,
+             input bit [4:0] flags, input bit do_flush=0);
+      mmu_item t = mmu_item::type_id::create("cfg");
+      start_item(t);
+      t.cfg=1; t.enable=en; t.index=idx; t.ppn=ppn; t.flags=flags; t.flush=do_flush;
+      finish_item(t);
+    endtask
+  endclass
+
+  class mmu_directed_seq extends uvm_sequence #(mmu_item);
+    `uvm_object_utils(mmu_directed_seq)
+    function new(string name="mmu_directed_seq"); super.new(name); endfunction
+
+    task access(input bit en, input [31:0] va, input bit wr, input bit ex);
+      mmu_item t=mmu_item::type_id::create("access");
+      start_item(t);
+      t.cfg=0; t.enable=en; t.access_valid=1; t.va=va; t.write=wr; t.exec=ex;
+      finish_item(t);
+    endtask
+
+    task cfg(input bit en,input [3:0] idx,input [19:0] ppn,input [4:0] flags,input bit fl=0);
+      mmu_item t=mmu_item::type_id::create("cfg");
+      start_item(t);
+      t.cfg=1;t.enable=en;t.index=idx;t.ppn=ppn;t.flags=flags;t.flush=fl;
+      finish_item(t);
+    endtask
+
+    task body();
+      // Reset/default page 0: valid + R/W/X.
+      cfg(1,4'h0,20'h00000,5'b01111,1);
+
+      // Disabled/bypass behavior.
+      cfg(0,4'h0,20'h00000,5'b01111,1);
+      access(0,32'hDEAD_BEEF,0,0);
+      cfg(1,4'h0,20'h00000,5'b01111,1);
+
+      // Read/write/execute permissions.
+      cfg(1,4'h1,20'h00002,5'b01111,0);
+      access(1,32'h0000_1000,0,1); // miss, execute, PA=0x2000
+      access(1,32'h0000_1fff,0,1); // hit, offset=0xfff
+      access(1,32'h0000_1001,1,0); // hit, write
+
+      cfg(1,4'h2,20'h00003,5'b10011,0); // V,R only
+      access(1,32'h0000_2008,0,0); // read allowed
+      access(1,32'h0000_2008,1,0); // write permission fault
+      access(1,32'h0000_2008,0,1); // execute permission fault
+
+      cfg(1,4'h3,20'h00004,5'b00000,0); // invalid
+      access(1,32'h0000_3000,0,0); // page fault
+
+      // Direct-mapped TLB conflict: VPN 1 and 5 share index [1:0]=1.
+      cfg(1,4'h5,20'h00005,5'b01111,0);
+      access(1,32'h0000_5000,0,0); // miss/refill
+      access(1,32'h0000_5004,0,0); // hit
+      access(1,32'h0000_1004,0,0); // miss after conflict
+      access(1,32'h0000_1008,0,0); // hit again
+
+      // Flush must remove all TLB entries.
+      cfg(1,4'h1,20'h00006,5'b01111,1);
+      access(1,32'h0000_100c,0,0); // miss after flush
+
+      // Non-aligned addresses are legal at MMU level; offset must be preserved.
+      access(1,32'h0000_10ab,0,0);
+      access(1,32'h0000_1ffe,0,0);
+    endtask
+  endclass
+
+  class mmu_random_seq extends uvm_sequence #(mmu_item);
+    `uvm_object_utils(mmu_random_seq)
+    int unsigned count = 1000;
+
+    function new(string name="mmu_random_seq");
+      super.new(name);
+    endfunction
+
+    task body();
+      mmu_item t;
+      repeat (count) begin
+        int unsigned cfg_idx;
+
+        // Alternate configuration and access so every random PTE is immediately exercised.
+        t = mmu_item::type_id::create("rand_cfg");
+        start_item(t);
+        assert(t.randomize() with {
+          cfg == 1;
+          enable == 1;
+          index inside {[0:15]};
+          ppn inside {[20'h00000:20'hFFFFF]};
+          flags dist {
+            5'b00000 := 2,
+            5'b00001 := 2,
+            5'b00011 := 3,
+            5'b00101 := 3,
+            5'b01001 := 3,
+            5'b01111 := 6,
+            5'b10011 := 3
+          };
+          flush dist {1 := 1, 0 := 9};
+        }) else `uvm_fatal("RAND","Cannot randomize cfg transaction");
+        finish_item(t);
+        cfg_idx = t.index;
+
+        t = mmu_item::type_id::create("rand_acc");
+        start_item(t);
+        assert(t.randomize() with {
+          cfg == 0;
+          enable == 1;
+          va[15:12] == cfg_idx;
+          // Page-table lookup intentionally uses only VPN[3:0], while the
+          // TLB compares the full VPN. Random upper VPN bits stress that boundary.
+          va[31:16] inside {[16'h0000:16'hffff]};
+          va[11:0] inside {
+            12'h000,12'h001,12'h002,12'h00f,
+            12'h010,12'h100,12'h7ff,12'h800,12'hffe,12'hfff
+          };
+          write dist {0 := 3, 1 := 2};
+          exec dist {0 := 4, 1 := 1};
+        }) else `uvm_fatal("RAND","Cannot randomize access transaction");
+        finish_item(t);
+      end
+    endtask
+  endclass
+
+  class mmu_uvm_test extends uvm_test;
+    `uvm_component_utils(mmu_uvm_test)
+    mmu_env env;
+
+    function new(string name, uvm_component parent);
+      super.new(name,parent);
+    endfunction
+
+    function void build_phase(uvm_phase phase);
+      super.build_phase(phase);
+      env=mmu_env::type_id::create("env",this);
+    endfunction
+
+    task run_phase(uvm_phase phase);
+      mmu_directed_seq d;
+      mmu_random_seq r;
+      phase.raise_objection(this);
+
+      d=mmu_directed_seq::type_id::create("directed");
+      d.start(env.agent.seqr);
+
+      r=mmu_random_seq::type_id::create("random");
+      r.count = 1000;
+      r.start(env.agent.seqr);
+
+      #50;
+      phase.drop_objection(this);
+    endtask
+  endclass
+endpackage

@@ -1,0 +1,45 @@
+Netlist_File: fpga_top.net Netlist_ID: SHA256:bda3a631fb91c53e5f14354e013549e5769e77f8410616b4d9abadc50d25f036
+Array size: 150 x 215 logic blocks
+
+#block name	x	y	subblk	block number
+#----------	--	--	------	------------
+$abc$17309$auto$blifparse.cc:525:parse_blif$17365.T0	47	32	1	#0
+$abc$17309$auto$blifparse.cc:525:parse_blif$17367.T0	47	34	1	#1
+$abc$17309$auto$blifparse.cc:525:parse_blif$17366.T0	47	30	1	#2
+$abc$17309$auto$blifparse.cc:525:parse_blif$17364.T0	47	31	1	#3
+$abc$17309$auto$blifparse.cc:525:parse_blif$17363.T0	47	29	1	#4
+$abc$17309$auto$blifparse.cc:525:parse_blif$17357.T0	44	31	1	#5
+$abc$17309$auto$blifparse.cc:525:parse_blif$17358.T0	44	32	0	#6
+$abc$17309$auto$blifparse.cc:525:parse_blif$17353.T0	47	33	1	#7
+$abc$17309$auto$blifparse.cc:525:parse_blif$17352.T0	47	36	0	#8
+$abc$17309$auto$blifparse.cc:525:parse_blif$17349.T0	44	34	1	#9
+$abc$17309$auto$blifparse.cc:525:parse_blif$17351.T0	44	36	1	#10
+$abc$17309$auto$blifparse.cc:525:parse_blif$17350.T0	44	34	0	#11
+$abc$17309$auto$blifparse.cc:525:parse_blif$17345.T0	44	35	0	#12
+$abc$17309$auto$blifparse.cc:525:parse_blif$17341.T0	47	35	1	#13
+$abc$17309$auto$blifparse.cc:525:parse_blif$17342.T0	47	37	1	#14
+$abc$17309$auto$blifparse.cc:525:parse_blif$17337.T0	47	36	1	#15
+$abc$17309$auto$blifparse.cc:525:parse_blif$17326.T0	47	43	0	#16
+$auto$alumacc.cc:485:replace_alu$15695.genblk1.slice[1].genblk1.carry4	47	34	0	#17
+$auto$alumacc.cc:485:replace_alu$15695.genblk1.slice[2].genblk1.carry4	47	33	0	#18
+$auto$alumacc.cc:485:replace_alu$15695.genblk1.slice[3].genblk1.carry4	47	32	0	#19
+$auto$alumacc.cc:485:replace_alu$15695.genblk1.slice[4].genblk1.carry4	47	31	0	#20
+$auto$alumacc.cc:485:replace_alu$15695.genblk1.slice[5].genblk1.carry4	47	30	0	#21
+$auto$alumacc.cc:485:replace_alu$15695.genblk1.slice[6].genblk1.carry4	47	29	0	#22
+$auto$alumacc.cc:485:replace_alu$15695.genblk1.slice[0].genblk1.carry4	47	35	0	#23
+$auto$alumacc.cc:485:replace_alu$15695.genblk1.slice[7].genblk1.carry4	47	28	0	#24
+dut.u_apb_ctrl.pwdata[0]	47	44	0	#25
+$auto$alumacc.cc:485:replace_alu$15692.genblk1.slice[0].genblk1.carry4	47	37	0	#26
+$procmux$15279.Y[2]	47	43	1	#27
+$iopadmap$fpga_top.led.genblk1.t_inv	147	104	0	#28
+$iopadmap$fpga_top.led_1.genblk1.t_inv	147	106	0	#29
+$iopadmap$fpga_top.led_2.genblk1.t_inv	2	156	0	#30
+$iopadmap$fpga_top.led_3.genblk1.t_inv	2	157	0	#31
+$iopadmap$fpga_top.uart_tx.genblk1.t_inv	2	41	0	#32
+$techmap19784$auto$ff.cc:266:slice$16120.cesr_mux.genblk1.ce	47	45	1	#33
+CLK100MHZ	147	78	0	#34
+btn_mode[0]	2	28	0	#35
+btn_mode[1]	2	29	0	#36
+btn_reset	2	26	0	#37
+$false		2	1	0	#38
+$true		1	1	0	#39

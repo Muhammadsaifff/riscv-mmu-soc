@@ -1,0 +1,14 @@
+{
+    "json_h": "/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/05-yosys-jsonheader/SoC_Hardened.h.json",
+    "nl": "/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/06-yosys-synthesis/SoC_Hardened.nl.v",
+    "metrics": {
+        "design__lint_error__count": 0,
+        "design__lint_timing_construct__count": 0,
+        "design__lint_warning__count": 72,
+        "design__inferred_latch__count": 0,
+        "design__instance__count": 916,
+        "design__instance__area": 7912.5888,
+        "design__instance_unmapped__count": 0,
+        "synthesis__check_error__count": 0
+    }
+}

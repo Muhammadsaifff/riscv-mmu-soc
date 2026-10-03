@@ -1,0 +1,52 @@
+Reading technology LEF file at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef'…
+[INFO ODB-0227] LEF file: /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef, created 14 layers, 25 vias
+Reading cell LEF file at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef'…
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef, created 437 library cells
+Reading cell LEF file at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef'…
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef, created 8 library cells
+Reading macro LEF file at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lef/sky130_sram_2kbyte_1rw1r_32x512_8.lef'…
+[INFO ODB-0227] LEF file: /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lef/sky130_sram_2kbyte_1rw1r_32x512_8.lef, created 1 library cells
+[INFO ODB-0127] Reading DEF file: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/55-odb-cellfrequencytables/SoC_Hardened.def
+[INFO ODB-0128] Design: SoC_Hardened
+[INFO ODB-0094] 		Created 100000 Insts
+[INFO ODB-0094] 		Created 200000 Insts
+[INFO ODB-0130]     Created 9 pins.
+[INFO ODB-0131]     Created 233816 components and 914557 component-terminals.
+[INFO ODB-0132]     Created 2 special nets and 911402 connections.
+[INFO ODB-0133]     Created 1179 nets and 3059 connections.
+[INFO ODB-0134] Finished DEF file: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/55-odb-cellfrequencytables/SoC_Hardened.def
+Using RCX ruleset '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/rules.openrcx.sky130A.min.calibre'…
+[INFO RCX-0431] Defined process_corner CURRENT_CORNER with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner CURRENT_CORNER
++ extract_parasitics  -ext_model_file /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/rules.openrcx.sky130A.min.calibre -lef_res
+[INFO RCX-0435] Reading extraction model file /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/rules.openrcx.sky130A.min.calibre ...
+[INFO RCX-0436] RC segment generation SoC_Hardened (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 2834 rc segments
+[INFO RCX-0439] Coupling Cap extraction SoC_Hardened ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 21% of 11075 wires extracted
+[INFO RCX-0442] 76% of 11075 wires extracted
+[INFO RCX-0442] 91% of 11075 wires extracted
+[INFO RCX-0442] 100% of 11075 wires extracted
+[INFO RCX-0045] Extract 1179 nets, 3859 rsegs, 3859 caps, 4708 ccs
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+^.*sram_even_words$ matched with u_top.dataMemory.sram_even_words
+^.*sram_odd_words$ matched with u_top.dataMemory.sram_odd_words
+[INFO ODB-0403] 0 connections made, 0 conflicts skipped.
+Updating metrics…
+Cell type report:                       Count       Area
+  Macro                                     2  569076.95
+  Fill cell                            220819  799121.42
+  Tap cell                              11929   14925.56
+  Antenna cell                             14      35.03
+  Standard cell                          1052    9645.50
+  Total                                233816 1392804.47
+Writing extracted parasitics to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/56-openroad-rcx/min/SoC_Hardened.min.spef'…
+[INFO RCX-0443] 1179 nets finished

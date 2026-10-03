@@ -1,0 +1,16 @@
+transcript on
+
+# Clean/recreate simulation library.
+if {[file exists work]} {
+    catch {vdel -lib work -all}
+}
+vlib work
+
+# Compile complete RV32I + VM + APB + UART + GPIO SoC and full UVM test.
+vlog -sv -f uvm_soc_full_files.f
+
+# Run the full SoC UVM test.
+vsim -voptargs=+acc work.soc_full_uvm_top
+run -all
+
+quit -f

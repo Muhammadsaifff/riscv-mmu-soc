@@ -1,0 +1,281 @@
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:36:10: Instance pin connected by name with empty reference: 'dbg_i_va'
+   36 |         .dbg_i_va(),
+      |          ^~~~~~~~
+                          ... For warning description see https://verilator.org/warn/PINCONNECTEMPTY?v=5.044
+                          ... Use "/* verilator lint_off PINCONNECTEMPTY */" and lint_on around source to disable this message.
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:37:10: Instance pin connected by name with empty reference: 'dbg_i_pa'
+   37 |         .dbg_i_pa(),
+      |          ^~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:38:10: Instance pin connected by name with empty reference: 'dbg_d_va'
+   38 |         .dbg_d_va(),
+      |          ^~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:39:10: Instance pin connected by name with empty reference: 'dbg_d_pa'
+   39 |         .dbg_d_pa(),
+      |          ^~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:40:10: Instance pin connected by name with empty reference: 'dbg_i_valid'
+   40 |         .dbg_i_valid(),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:41:10: Instance pin connected by name with empty reference: 'dbg_d_valid'
+   41 |         .dbg_d_valid(),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:42:10: Instance pin connected by name with empty reference: 'dbg_d_write'
+   42 |         .dbg_d_write(),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:43:10: Instance pin connected by name with empty reference: 'dbg_i_fault'
+   43 |         .dbg_i_fault(),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:44:10: Instance pin connected by name with empty reference: 'dbg_d_fault'
+   44 |         .dbg_d_fault(),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:45:10: Instance pin connected by name with empty reference: 'dbg_i_perm_fault'
+   45 |         .dbg_i_perm_fault(),
+      |          ^~~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:46:10: Instance pin connected by name with empty reference: 'dbg_d_perm_fault'
+   46 |         .dbg_d_perm_fault(),
+      |          ^~~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:47:10: Instance pin connected by name with empty reference: 'dbg_i_tlb_hit'
+   47 |         .dbg_i_tlb_hit(),
+      |          ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:48:10: Instance pin connected by name with empty reference: 'dbg_d_tlb_hit'
+   48 |         .dbg_d_tlb_hit(),
+      |          ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:49:10: Instance pin connected by name with empty reference: 'dbg_i_tlb_miss'
+   49 |         .dbg_i_tlb_miss(),
+      |          ^~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:50:10: Instance pin connected by name with empty reference: 'dbg_d_tlb_miss'
+   50 |         .dbg_d_tlb_miss(),
+      |          ^~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:51:10: Instance pin connected by name with empty reference: 'dbg_mmu_enable'
+   51 |         .dbg_mmu_enable(),
+      |          ^~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:52:10: Instance pin connected by name with empty reference: 'dbg_uart_busy'
+   52 |         .dbg_uart_busy(),
+      |          ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:53:10: Instance pin connected by name with empty reference: 'dbg_d_write_commit'
+   53 |         .dbg_d_write_commit(),
+      |          ^~~~~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:54:10: Instance pin connected by name with empty reference: 'dbg_i_fault_sticky'
+   54 |         .dbg_i_fault_sticky(),
+      |          ^~~~~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:55:10: Instance pin connected by name with empty reference: 'dbg_d_fault_sticky'
+   55 |         .dbg_d_fault_sticky(),
+      |          ^~~~~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:56:10: Instance pin connected by name with empty reference: 'dbg_i_perm_sticky'
+   56 |         .dbg_i_perm_sticky(),
+      |          ^~~~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:57:10: Instance pin connected by name with empty reference: 'dbg_d_perm_sticky'
+   57 |         .dbg_d_perm_sticky()
+      |          ^~~~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:69:10: Instance pin connected by name with empty reference: 'dbg_i_va'
+   69 |         .dbg_i_va(),
+      |          ^~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:70:10: Instance pin connected by name with empty reference: 'dbg_i_pa'
+   70 |         .dbg_i_pa(),
+      |          ^~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:71:10: Instance pin connected by name with empty reference: 'dbg_d_va'
+   71 |         .dbg_d_va(),
+      |          ^~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:72:10: Instance pin connected by name with empty reference: 'dbg_d_pa'
+   72 |         .dbg_d_pa(),
+      |          ^~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:73:10: Instance pin connected by name with empty reference: 'dbg_i_valid'
+   73 |         .dbg_i_valid(),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:74:10: Instance pin connected by name with empty reference: 'dbg_d_valid'
+   74 |         .dbg_d_valid(),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:75:10: Instance pin connected by name with empty reference: 'dbg_d_write'
+   75 |         .dbg_d_write(),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:76:10: Instance pin connected by name with empty reference: 'dbg_i_fault'
+   76 |         .dbg_i_fault(),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:77:10: Instance pin connected by name with empty reference: 'dbg_d_fault'
+   77 |         .dbg_d_fault(),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:78:10: Instance pin connected by name with empty reference: 'dbg_i_perm_fault'
+   78 |         .dbg_i_perm_fault(),
+      |          ^~~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:79:10: Instance pin connected by name with empty reference: 'dbg_d_perm_fault'
+   79 |         .dbg_d_perm_fault(),
+      |          ^~~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:80:10: Instance pin connected by name with empty reference: 'dbg_i_tlb_hit'
+   80 |         .dbg_i_tlb_hit(),
+      |          ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:81:10: Instance pin connected by name with empty reference: 'dbg_d_tlb_hit'
+   81 |         .dbg_d_tlb_hit(),
+      |          ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:82:10: Instance pin connected by name with empty reference: 'dbg_i_tlb_miss'
+   82 |         .dbg_i_tlb_miss(),
+      |          ^~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:83:10: Instance pin connected by name with empty reference: 'dbg_d_tlb_miss'
+   83 |         .dbg_d_tlb_miss(),
+      |          ^~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:84:10: Instance pin connected by name with empty reference: 'dbg_mmu_enable'
+   84 |         .dbg_mmu_enable(),
+      |          ^~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:86:10: Instance pin connected by name with empty reference: 'dbg_d_write_commit'
+   86 |         .dbg_d_write_commit(),
+      |          ^~~~~~~~~~~~~~~~~~
+%Warning-PINMISSING: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:53:7: Instance has missing pin: 'vccd1'
+   53 |     ) soc (
+      |       ^~~
+                     /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v:52:17: ... Location of port declaration
+   52 |     ,inout wire vccd1
+      |                 ^~~~~
+                     ... For warning description see https://verilator.org/warn/PINMISSING?v=5.044
+                     ... Use "/* verilator lint_off PINMISSING */" and lint_on around source to disable this message.
+%Warning-PINMISSING: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/fpga_top.v:53:7: Instance has missing pin: 'vssd1'
+   53 |     ) soc (
+      |       ^~~
+                     /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v:53:17: ... Location of port declaration
+   53 |     ,inout wire vssd1
+      |                 ^~~~~
+%Warning-WIDTHTRUNC: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/extend.v:7:28: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 33 bits.
+                                                                                                                              : ... note: In instance 'SoC_Hardened.u_top.RV32I_Logic.Single_Cycle_Datapath.extendImm'
+    7 |             3'b001: ExtImm = {{21{Instr[24]}}, Instr[24:18], Instr[4:0]};  
+      |                            ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.044
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:16:17: Signal is not used: 'prdata'
+                                                                                                                                       : ... note: In instance 'SoC_Hardened'
+   16 |     wire [31:0] prdata;
+      |                 ^~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.044
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:17:10: Signal is not used: 'pready'
+                                                                                                                                       : ... note: In instance 'SoC_Hardened'
+   17 |     wire pready;
+      |          ^~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:18:17: Bits of signal are not used: 'gpio_all'[15:4]
+                                                                                                                                       : ... note: In instance 'SoC_Hardened'
+   18 |     wire [15:0] gpio_all;
+      |                 ^~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v:90:10: Signal is not used: 'i_refill'
+                                                                                                                              : ... note: In instance 'SoC_Hardened.u_top'
+   90 |     wire i_refill, d_refill;
+      |          ^~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v:90:20: Signal is not used: 'd_refill'
+                                                                                                                              : ... note: In instance 'SoC_Hardened.u_top'
+   90 |     wire i_refill, d_refill;
+      |                    ^~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v:91:17: Signal is not used: 'i_refill_vpn'
+                                                                                                                              : ... note: In instance 'SoC_Hardened.u_top'
+   91 |     wire [19:0] i_refill_vpn, d_refill_vpn;
+      |                 ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v:91:31: Signal is not used: 'd_refill_vpn'
+                                                                                                                              : ... note: In instance 'SoC_Hardened.u_top'
+   91 |     wire [19:0] i_refill_vpn, d_refill_vpn;
+      |                               ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v:92:17: Signal is not used: 'i_refill_ppn'
+                                                                                                                              : ... note: In instance 'SoC_Hardened.u_top'
+   92 |     wire [19:0] i_refill_ppn, d_refill_ppn;
+      |                 ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v:92:31: Signal is not used: 'd_refill_ppn'
+                                                                                                                              : ... note: In instance 'SoC_Hardened.u_top'
+   92 |     wire [19:0] i_refill_ppn, d_refill_ppn;
+      |                               ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v:93:16: Signal is not used: 'i_refill_flags'
+                                                                                                                              : ... note: In instance 'SoC_Hardened.u_top'
+   93 |     wire [4:0] i_refill_flags, d_refill_flags;
+      |                ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v:93:32: Signal is not used: 'd_refill_flags'
+                                                                                                                              : ... note: In instance 'SoC_Hardened.u_top'
+   93 |     wire [4:0] i_refill_flags, d_refill_flags;
+      |                                ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v:96:17: Signal is not used: 'ptbr'
+                                                                                                                              : ... note: In instance 'SoC_Hardened.u_top'
+   96 |     wire [31:0] ptbr;
+      |                 ^~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/apb_mmu_control.v:17:23: Bits of signal are not used: 'paddr'[31:8]
+                                                                                                                                          : ... note: In instance 'SoC_Hardened.u_top.u_apb_ctrl'
+   17 |     input wire [31:0] paddr, pwdata,
+      |                       ^~~~~
+%Warning-UNUSEDPARAM: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/dmem.v:37:16: Parameter is not used: 'WORDS'
+                                                                                                                              : ... note: In instance 'SoC_Hardened.u_top.dataMemory'
+   37 |     localparam WORDS = 1024;
+      |                ^~~~~
+                      ... For warning description see https://verilator.org/warn/UNUSEDPARAM?v=5.044
+                      ... Use "/* verilator lint_off UNUSEDPARAM */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/dmem.v:63:17: Signal is not used: 's0_dout0'
+                                                                                                                               : ... note: In instance 'SoC_Hardened.u_top.dataMemory'
+   63 |     wire [31:0] s0_dout0;
+      |                 ^~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/dmem.v:70:17: Signal is not used: 's1_dout0'
+                                                                                                                               : ... note: In instance 'SoC_Hardened.u_top.dataMemory'
+   70 |     wire [31:0] s1_dout0;
+      |                 ^~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/dmem.v:282:15: Signal is not used: 'rd_cross_q'
+                                                                                                                                : ... note: In instance 'SoC_Hardened.u_top.dataMemory'
+  282 |     reg       rd_cross_q;
+      |               ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/dmem.v:526:16: Bits of signal are not used: 'read_next_word'[31:24]
+                                                                                                                                : ... note: In instance 'SoC_Hardened.u_top.dataMemory'
+  526 |     reg [31:0] read_next_word;
+      |                ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/gpio_debug.v:6:23: Bits of signal are not used: 'pc'[31:12,2:0]
+                                                                                                                                    : ... note: In instance 'SoC_Hardened.u_top.u_gpio'
+    6 |     input wire [31:0] pc,
+      |                       ^~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/mmu.v:43:21: Bits of signal are not used: 'f'[4]
+                                                                                                                              : ... note: In instance 'SoC_Hardened.u_top.data_mmu'
+   43 |         input [4:0] f;
+      |                     ^
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/page_table.v:5:23: Bits of signal are not used: 'lookup0_vpn'[19:4]
+                                                                                                                                    : ... note: In instance 'SoC_Hardened.u_top.u_page_table'
+    5 |     input wire [19:0] lookup0_vpn,
+      |                       ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/page_table.v:8:23: Bits of signal are not used: 'lookup1_vpn'[19:4]
+                                                                                                                                    : ... note: In instance 'SoC_Hardened.u_top.u_page_table'
+    8 |     input wire [19:0] lookup1_vpn,
+      |                       ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/uart_tx.v:12:15: Bits of signal are not used: 'shift'[0]
+                                                                                                                                  : ... note: In instance 'SoC_Hardened.u_top.u_uart'
+   12 |     reg [9:0] shift;
+      |               ^~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/control_logic.v:5:23: Bits of signal are not used: 'inst'[24:15,11:7]
+                                                                                                                                       : ... note: In instance 'SoC_Hardened.u_top.RV32I_Logic.Single_Cycle_Control'
+    5 |     input wire [31:0] inst;
+      |                       ^~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/control_logic.v:6:22: Signal is not used: 'clk'
+                                                                                                                                       : ... note: In instance 'SoC_Hardened.u_top.RV32I_Logic.Single_Cycle_Control'
+    6 |     input wire jump, clk, reset;
+      |                      ^~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/control_logic.v:6:27: Signal is not used: 'reset'
+                                                                                                                                       : ... note: In instance 'SoC_Hardened.u_top.RV32I_Logic.Single_Cycle_Control'
+    6 |     input wire jump, clk, reset;
+      |                           ^~~~~
+%Warning-UNUSEDSIGNAL: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/datapath.v:13:18: Bits of signal are not used: 'Instr'[6:0]
+                                                                                                                                   : ... note: In instance 'SoC_Hardened.u_top.RV32I_Logic.Single_Cycle_Datapath'
+   13 |     input [31:0] Instr;
+      |                  ^~~~~
+%Warning-PROCASSINIT: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/regfile.v:13:14: Procedural assignment to declaration with initial value: 'i'
+                                                                                                                                 : ... note: In instance 'SoC_Hardened.u_top.RV32I_Logic.Single_Cycle_Datapath.regFILE'
+                                                                                                                                 : ... Location of variable initialization
+   13 |  integer i = 0;
+      |              ^
+                      /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/regfile.v:16:9: ... Location of variable process write
+                                                                                                                                : ... Perhaps should initialize instead using a reset in this process
+   16 |    for (i = 0; i < 32; i = i + 1) begin 
+      |         ^
+                      ... For warning description see https://verilator.org/warn/PROCASSINIT?v=5.044
+                      ... Use "/* verilator lint_off PROCASSINIT */" and lint_on around source to disable this message.
+%Warning-SYNCASYNCNET: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/SoC_Hardened.v:7:16: Signal flopped as both synchronous and async: 'reset'
+                       /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/page_table.v:28:13: ... Location of async usage
+   28 |         if (reset) begin
+      |             ^~~~~
+                       /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/tlb.v:30:13: ... Location of sync usage
+   30 |         if (reset || flush) begin
+      |             ^~~~~
+                       ... For warning description see https://verilator.org/warn/SYNCASYNCNET?v=5.044
+                       ... Use "/* verilator lint_off SYNCASYNCNET */" and lint_on around source to disable this message.
+%Warning-SYNCASYNCNET: /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/Top.v:68:10: Signal flopped as both synchronous and async: 'SoC_Hardened.u_top.cpu_reset'
+                       /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/regfile.v:15:7: ... Location of async usage
+   15 |   if (reset) begin       
+      |       ^~~~~
+                       /home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/flopr.v:13:7: ... Location of sync usage
+   13 |   if (reset)
+      |       ^~~~~
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev v5.040
+- Verilator: Built from 6.438 MB sources in 470 modules, into 0.223 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.349 s (elab=0.074, cvt=0.175, bld=0.000); cpu 0.294 s on 1 threads; alloced 30.703 MB

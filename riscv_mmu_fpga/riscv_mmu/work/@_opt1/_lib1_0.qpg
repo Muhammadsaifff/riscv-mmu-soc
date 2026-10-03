@@ -1,0 +1,608 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11f vlog 2021.2_1 2021.05, May 15 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/saif
+T_opt
+Z2 !s11d vm_apb_pkg /home/saif/riscv_mmu/work 2 apb_if 1 /home/saif/riscv_mmu/work vm_status_if 1 /home/saif/riscv_mmu/work 
+!s110 1788515567
+VE]3^@U15fh<?]7VYf2Yh80
+Z3 04 7 4 work uvm_top fast 0
+=1-000ae431a4f1-6a9a94ef-18751-5cfd
+Z4 !s124 OEM100
+Z5 o-quiet -auto_acc_if_foreign -work work +acc
+Z6 tCvgOpt 0
+n@_opt
+Z7 OL;O;2021.2_1;73
+R1
+T_opt1
+!s110 1788519307
+VK`aN=27HD_EOU0^8?YPJh2
+04 14 4 work vm_mmu_unit_tb fast 0
+=1-000ae431a4f1-6a9aa38b-2a1d-67be
+R4
+R5
+R6
+n@_opt1
+R7
+T_opt2
+R2
+!s110 1788516458
+V3JObVX4C[7Od`c[M?T:>92
+R3
+=1-000ae431a4f1-6a9a986a-48548-606a
+R4
+o-quiet -auto_acc_if_foreign -work work
+R6
+n@_opt2
+R7
+R1
+vadder
+Z8 !s110 1788518938
+!i10b 1
+!s100 cjzcGQ`L2kg4LbN77>6=c0
+I9G@iH2UBSh==HFddCc]V?1
+Z9 d/home/saif/riscv_mmu
+Z10 w1788446932
+8/home/saif/riscv_mmu/adder.v
+F/home/saif/riscv_mmu/adder.v
+!i122 265
+L0 3 9
+Z11 VDg1SIo80bB@j0V0VzS_@n1
+Z12 OL;L;2021.2_1;73
+r1
+!s85 0
+31
+!i113 0
+Z13 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R6
+valu32
+R8
+!i10b 1
+!s100 :6lAUcd0ohU]WmUWagTWo2
+ISCma<8`gFA3DB:1lf=m:H2
+R9
+Z14 w1788446946
+8/home/saif/riscv_mmu/alu32.v
+F/home/saif/riscv_mmu/alu32.v
+!i122 266
+L0 1 26
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vapb_directed_tb
+Z15 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z16 !s110 1788518939
+!i10b 1
+!s100 hOI`EY>dZ8U;EPNmObB=13
+ICLNjkJZ;c1Xl_kJDHfSmK3
+S1
+R9
+w1788449384
+8/home/saif/riscv_mmu/apb_directed_tb.sv
+F/home/saif/riscv_mmu/apb_directed_tb.sv
+!i122 275
+L0 2 39
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+Z17 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R6
+Yapb_if
+R15
+Z18 !s110 1788518940
+!i10b 1
+!s100 8_hZC3LT8?Nn>8OlETl8o3
+IIfBY?K>kJ0QkhMCM=T_Mh0
+S1
+R9
+w1788449282
+8/home/saif/riscv_mmu/apb_if.sv
+F/home/saif/riscv_mmu/apb_if.sv
+!i122 279
+Z19 L0 1 0
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R17
+R6
+vapb_mmu_control
+Z20 !s110 1788518937
+!i10b 1
+!s100 VmmS5EVPVjj<_RBk5z66?3
+Ibb2j4T5QRk`?gVnPVfedC3
+R9
+w1788449194
+8/home/saif/riscv_mmu/apb_mmu_control.v
+F/home/saif/riscv_mmu/apb_mmu_control.v
+!i122 256
+L0 14 97
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vcontrol_logic
+R8
+!i10b 1
+!s100 [FoQZZZzhzZef9T@@?Oc?2
+IBPNQTD@6mgC;WX6AKU_3O1
+R9
+R14
+8/home/saif/riscv_mmu/control_logic.v
+F/home/saif/riscv_mmu/control_logic.v
+!i122 267
+L0 2 116
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vdatapath
+R8
+!i10b 1
+!s100 @Tb4Y:_ARXbZJF5f7VQ`T3
+I=@9z>6AGaSz0T1e[F2b2I0
+R9
+R10
+8/home/saif/riscv_mmu/datapath.v
+F/home/saif/riscv_mmu/datapath.v
+!i122 268
+L0 1 95
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vdmem
+R20
+!i10b 1
+!s100 YIYL1DO_9>GR8??SXoD2n1
+Ii=2AicAQTRQYOjabKAzaZ2
+R9
+w1788447071
+8/home/saif/riscv_mmu/dmem.v
+F/home/saif/riscv_mmu/dmem.v
+!i122 259
+L0 4 54
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vextend
+R16
+!i10b 1
+!s100 01QURjTS>_I0SVZUSbOSK3
+Il;VJcOA2T5HTCLN6KhTmL3
+R9
+R14
+8/home/saif/riscv_mmu/extend.v
+F/home/saif/riscv_mmu/extend.v
+!i122 269
+Z21 L0 2 13
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vfault_handler
+R8
+!i10b 1
+!s100 fdE56h`UC@;>`l4DhS2Xj1
+I]FYBgffahG1;oB3MmmJmF2
+R9
+w1788447004
+8/home/saif/riscv_mmu/fault_handler.v
+F/home/saif/riscv_mmu/fault_handler.v
+!i122 261
+L0 3 24
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vflopr
+R16
+!i10b 1
+!s100 SA;6h@NFk9aFJQ[zF^3QW0
+I?<ANelIQOULj4TCOB1J<h2
+R9
+R10
+8/home/saif/riscv_mmu/flopr.v
+F/home/saif/riscv_mmu/flopr.v
+!i122 270
+L0 1 14
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vgpio_debug
+R20
+!i10b 1
+!s100 oY`Fn=MCUO7>]V1N0Zi;d3
+IQ8oAHiz`T1a1T0cJMP2Ig1
+R9
+w1788446990
+8/home/saif/riscv_mmu/gpio_debug.v
+F/home/saif/riscv_mmu/gpio_debug.v
+!i122 257
+L0 1 17
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vimem
+R8
+!i10b 1
+!s100 =JajCf@H7nN4R3`9Zde4T2
+IMLC=JP0ZhIliVc<5O[7h?2
+R9
+Z22 w1788446964
+8/home/saif/riscv_mmu/imem.v
+F/home/saif/riscv_mmu/imem.v
+!i122 260
+R21
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vmmu
+R8
+!i10b 1
+!s100 6M34UfLEMl0GgT;L46HN^3
+Ik?TdVQ84XIZffkN_TVfeG2
+R9
+R22
+8/home/saif/riscv_mmu/mmu.v
+F/home/saif/riscv_mmu/mmu.v
+!i122 262
+L0 5 86
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+Ymmu_if
+R15
+R18
+!i10b 1
+!s100 c?0W3UNJc49Lh<VN`j3`o2
+I;4Ga8>z6UDc1<UzI`]Ame3
+S1
+R9
+Z23 w1788449425
+8/home/saif/riscv_mmu/mmu_if.sv
+F/home/saif/riscv_mmu/mmu_if.sv
+!i122 280
+R19
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R17
+R6
+Xmmu_uvm_pkg
+!s115 mmu_if
+R15
+Z24 DXx6 mtiUvm 7 uvm_pkg 0 22 8V[`8]Q0W57le7Z>zYaAj1
+R18
+!i10b 1
+!s100 `36l3@lFRWAkj@CK=O=E<1
+I0;6^cS]]Oe:VPRbgN4N5E3
+S1
+R9
+w1788506476
+8/home/saif/riscv_mmu/mmu_uvm_pkg.sv
+F/home/saif/riscv_mmu/mmu_uvm_pkg.sv
+Z25 F/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
+Z26 F/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
+Z27 F/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
+Z28 F/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
+Z29 F/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
+Z30 F/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
+Z31 F/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
+Z32 F/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
+Z33 F/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
+Z34 F/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
+Z35 F/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
+Z36 F/home/saif/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
+!i122 281
+R19
+V0;6^cS]]Oe:VPRbgN4N5E3
+R12
+r1
+!s85 0
+31
+!i113 0
+R17
+R6
+vmmu_uvm_top
+R15
+R24
+DXx4 work 11 mmu_uvm_pkg 0 22 0;6^cS]]Oe:VPRbgN4N5E3
+!s110 1788518941
+!i10b 1
+!s100 83MULPjNOGBf18ZI6EjKP0
+IX;n:ogWLV5hBE5>OKcihm2
+S1
+R9
+R23
+8/home/saif/riscv_mmu/mmu_uvm_top.sv
+F/home/saif/riscv_mmu/mmu_uvm_top.sv
+!i122 282
+Z37 L0 2 10
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R17
+R6
+vmux2
+R16
+!i10b 1
+!s100 inSE]<kD^h0KAd_n>zj;30
+IfH3FoHddO3CWPTPY4f?>Z1
+R9
+R10
+8/home/saif/riscv_mmu/mux2.v
+F/home/saif/riscv_mmu/mux2.v
+!i122 271
+R37
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vmux4
+R16
+!i10b 1
+!s100 ]0SkQa[TCC5;@[a^7ihnV0
+IJaMPOiKEOO^:dGDPGKZK61
+R9
+R14
+8/home/saif/riscv_mmu/mux4.v
+F/home/saif/riscv_mmu/mux4.v
+!i122 272
+L0 1 13
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vpage_table
+R8
+!i10b 1
+!s100 lzIM1zQ1UVfRk^_85Y`MP2
+I:C6WTeK1D1n8RWAUM32j@3
+R9
+w1788446973
+8/home/saif/riscv_mmu/page_table.v
+F/home/saif/riscv_mmu/page_table.v
+!i122 263
+L0 3 38
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vregfile
+R16
+!i10b 1
+!s100 43eXY4X8I=[cPi0RRbWFi2
+InLR7[WPNiNAoE34LQI1Az1
+R9
+R10
+8/home/saif/riscv_mmu/regfile.v
+F/home/saif/riscv_mmu/regfile.v
+!i122 273
+L0 2 25
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vSingle_Cycle_RV32I
+R16
+!i10b 1
+!s100 iU_XZRa7[o[l?YjJPchi71
+I^Gj8FQ?YgX1`nhK`e<0L>3
+R9
+R10
+8/home/saif/riscv_mmu/Single_Cycle_RV32I.v
+F/home/saif/riscv_mmu/Single_Cycle_RV32I.v
+!i122 274
+L0 2 49
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+n@single_@cycle_@r@v32@i
+vsoc_smoke_tb
+R15
+R16
+!i10b 1
+!s100 5DL:2PbkzJ]Lb?BfJo5dg3
+IJ4>5g[?9X_bo=bPi;cWJ:0
+S1
+R9
+w1788506724
+8/home/saif/riscv_mmu/soc_smoke_tb.sv
+F/home/saif/riscv_mmu/soc_smoke_tb.sv
+!i122 276
+L0 2 21
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R17
+R6
+vtlb
+R8
+!i10b 1
+!s100 T`P2C6THEVNdcIob_RziK3
+IB8Gb2eS03[NN9`d_j^4`50
+R9
+R22
+8/home/saif/riscv_mmu/tlb.v
+F/home/saif/riscv_mmu/tlb.v
+!i122 264
+L0 2 42
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vTop
+R20
+!i10b 1
+!s100 H9Jga0fU53`]P80bI^YRR0
+INKPAK17IL=`S?lil3n^Hm1
+R9
+w1788449557
+8/home/saif/riscv_mmu/Top.v
+F/home/saif/riscv_mmu/Top.v
+!i122 255
+L0 4 159
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+n@top
+vuart_tx
+R20
+!i10b 1
+!s100 mVJ_]J7_LFXg;I`ZmW1QQ1
+IYa`>WIOP@HgP_X^c4Y8gC1
+R9
+w1788449232
+8/home/saif/riscv_mmu/uart_tx.v
+F/home/saif/riscv_mmu/uart_tx.v
+!i122 258
+L0 2 43
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R13
+R6
+vuvm_top
+R15
+R24
+DXx4 work 10 vm_apb_pkg 0 22 NXGT7gYXKEFQeCYlom0lH3
+Z38 !s110 1788518942
+!i10b 1
+!s100 96>R4TDJ9z`60Yb4<2m1S3
+ISJZcE]7z1lO21Zclk1e1D3
+S1
+R9
+w1788516243
+8/home/saif/riscv_mmu/uvm_top.sv
+F/home/saif/riscv_mmu/uvm_top.sv
+!i122 283
+L0 2 44
+R11
+R12
+r1
+!s85 0
+31
+!i113 0
+R17
+R6
+Xvm_apb_pkg
+!s115 vm_status_if
+!s115 apb_if
+R15
+R24
+R38
+!i10b 

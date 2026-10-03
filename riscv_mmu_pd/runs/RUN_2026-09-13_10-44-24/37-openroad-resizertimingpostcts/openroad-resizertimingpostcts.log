@@ -1,0 +1,142 @@
+Reading timing models for corner max_tt_025C_1v80…
+Reading timing library for the 'max_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading timing library for the 'max_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+Reading timing models for corner min_ss_100C_1v60…
+Reading timing library for the 'min_ss_100C_1v60' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib'…
+Reading timing library for the 'min_ss_100C_1v60' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner nom_tt_025C_1v80…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib line 1, library sky130_fd_sc_hd__tt_025C_1v80 already exists.
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner max_ff_n40C_1v95…
+Reading timing library for the 'max_ff_n40C_1v95' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib'…
+Reading timing library for the 'max_ff_n40C_1v95' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner nom_ff_n40C_1v95…
+Reading timing library for the 'nom_ff_n40C_1v95' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib line 1, library sky130_fd_sc_hd__ff_n40C_1v95 already exists.
+Reading timing library for the 'nom_ff_n40C_1v95' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner max_ss_100C_1v60…
+Reading timing library for the 'max_ss_100C_1v60' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib line 1, library sky130_fd_sc_hd__ss_100C_1v60 already exists.
+Reading timing library for the 'max_ss_100C_1v60' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner min_tt_025C_1v80…
+Reading timing library for the 'min_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib line 1, library sky130_fd_sc_hd__tt_025C_1v80 already exists.
+Reading timing library for the 'min_tt_025C_1v80' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner nom_ss_100C_1v60…
+Reading timing library for the 'nom_ss_100C_1v60' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib line 1, library sky130_fd_sc_hd__ss_100C_1v60 already exists.
+Reading timing library for the 'nom_ss_100C_1v60' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading timing models for corner min_ff_n40C_1v95…
+Reading timing library for the 'min_ff_n40C_1v95' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib line 1, library sky130_fd_sc_hd__ff_n40C_1v95 already exists.
+Reading timing library for the 'min_ff_n40C_1v95' corner at '/home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib'…
+[WARNING STA-1140] /home/ayesha/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib line 1, library sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C_lib already exists.
+Reading OpenROAD database at '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/35-openroad-cts/SoC_Hardened.odb'…
+Reading design constraints file at '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/impl.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 2.0
+[INFO] Setting input delay to: 2.0
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5.0%
+[INFO] No information on clock propagation in input SDC file-- propagating all clocks.
++ repair_timing -verbose -setup -setup_margin 0.05000000000000000277555756156289135105907917022705078125 -max_buffer_percent 50.0
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0094] Found 22 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 22 out of 22 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |   TNS      |  Viol  | Worst
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            | Endpts | Endpt
+--------------------------------------------------------------------------------------------------------------
+        0 |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -3.769 |      -26.3 |     22 | gpio[3]
+       10 |       2 |       7 |        0 |      0 |     0 |    -0.0% |   -2.675 |       -8.2 |     22 | gpio[3]
+       20 |       2 |      17 |        0 |      0 |     0 |    -0.0% |   -2.050 |       -4.0 |     22 | gpio[3]
+       30 |       2 |      27 |        0 |      0 |     0 |    -0.0% |   -1.708 |       -3.3 |     22 | gpio[3]
+       40 |       4 |      33 |        1 |      0 |     1 |    -0.0% |   -1.396 |       -2.7 |     22 | gpio[3]
+       50 |       4 |      42 |        1 |      0 |     2 |    -0.0% |   -1.227 |       -2.3 |     22 | gpio[3]
+       60 |       5 |      48 |        2 |      0 |     4 |    +0.0% |   -0.918 |       -1.8 |     22 | gpio[3]
+       70 |       5 |      56 |        5 |      0 |     4 |    +0.0% |   -0.702 |       -1.3 |     22 | gpio[1]
+       80 |       5 |      66 |        5 |      0 |     4 |    +0.0% |   -0.582 |       -1.1 |     22 | gpio[3]
+       90 |       6 |      74 |        6 |      0 |     4 |    +0.0% |   -0.475 |       -0.9 |     22 | gpio[3]
+      100 |       7 |      82 |        8 |      0 |     4 |    +0.0% |   -0.406 |       -0.6 |     22 | gpio[1]
+      110 |       7 |      88 |       11 |      0 |     5 |    +0.0% |   -0.310 |       -0.5 |     22 | gpio[1]
+      120 |       7 |      90 |       15 |      0 |     9 |    +0.0% |   -0.206 |       -0.4 |     22 | gpio[1]
+      130 |       8 |      93 |       19 |      0 |    11 |    +0.0% |   -0.241 |       -0.4 |     22 | gpio[3]
+      140 |       9 |      99 |       19 |      0 |    14 |    +0.0% |   -0.025 |       -0.0 |     22 | gpio[1]
+      143 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |     20 | gpio[3]
+      144 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |     19 | gpio[3]
+      145 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |     18 | gpio[3]
+      146 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |     17 | gpio[3]
+      147 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |     16 | gpio[3]
+      148 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |     15 | gpio[3]
+      149 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |     14 | gpio[3]
+      150 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |     14 | gpio[3]
+      150 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |     13 | gpio[3]
+      151 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |     12 | gpio[3]
+      152 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |     11 | gpio[3]
+      153 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |     10 | gpio[3]
+      154 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      9 | gpio[3]
+      155 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      8 | gpio[3]
+      156 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      7 | gpio[3]
+      157 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      6 | gpio[3]
+      158 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      5 | gpio[3]
+      159 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      4 | gpio[3]
+      160 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      4 | gpio[3]
+      160 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      3 | gpio[3]
+      161 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      2 | gpio[3]
+      162 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      1 | gpio[3]
+      163 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      0 | gpio[3]
+      164 |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      0 | gpio[3]
+    final |      10 |     100 |       20 |      0 |    14 |    +0.0% |    0.032 |        0.0 |      1 | gpio[3]
+--------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0059] Removed 10 buffers.
+[INFO RSZ-0040] Inserted 20 buffers.
+[INFO RSZ-0051] Resized 100 instances: 100 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 14 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
++ repair_timing -verbose -hold -setup_margin 0.05000000000000000277555756156289135105907917022705078125 -hold_margin 0.1000000000000000055511151231257827021181583404541015625 -max_buffer_percent 50.0
+[INFO RSZ-0033] No hold violations found.
++ detailed_placement -max_displacement  500 100 
+Placement Analysis
+---------------------------------
+total displacement        113.8 u
+average displacement        0.0 u
+max displacement            6.0 u
+original HPWL           28176.9 u
+legalized HPWL          29262.1 u
+delta HPWL                    4 %
+
+[INFO DPL-0020] Mirrored 538 instances
+[INFO DPL-0021] HPWL before           29262.1 u
+[INFO DPL-0022] HPWL after            28183.4 u
+[INFO DPL-0023] HPWL delta               -3.7 %
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+^.*sram_even_words$ matched with u_top.dataMemory.sram_even_words
+^.*sram_odd_words$ matched with u_top.dataMemory.sram_odd_words
+[INFO ODB-0403] 80 connections made, 0 conflicts skipped.
+Updating metrics…
+Cell type report:                       Count       Area
+  Macro                                     2  569076.95
+  Fill cell                              1526    5727.99
+  Tap cell                              11929   14925.56
+  Buffer                                  323    1622.81
+  Clock buffer                             32     658.13
+  Timing Repair Buffer                     86     719.44
+  Inverter                                 34     130.12
+  Sequential cell                         130    2833.97
+  Multi-Input combinational cell          422    3412.02
+  Total                                 14484  599107.00
+Writing OpenROAD database to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/37-openroad-resizertimingpostcts/SoC_Hardened.odb'…
+Writing netlist to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/37-openroad-resizertimingpostcts/SoC_Hardened.nl.v'…
+Writing powered netlist to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/37-openroad-resizertimingpostcts/SoC_Hardened.pnl.v'…
+Writing layout to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/37-openroad-resizertimingpostcts/SoC_Hardened.def'…
+Writing timing constraints to '/home/ayesha/Downloads/riscv_mmu_fast_synthesis_project_an/riscv_mmu_fast_synthesis_project/runs/RUN_2026-09-13_10-44-24/37-openroad-resizertimingpostcts/SoC_Hardened.sdc'…
